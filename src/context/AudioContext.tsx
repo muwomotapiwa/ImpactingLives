@@ -9,6 +9,13 @@ import yourNameCover from '@/assets/your_name.jpeg';
 
 import aneNyashaMp3 from '@/music/Zvoda_Ishe/AneNyasha-2.mp3';
 import anerudoMp3 from '@/music/Zvoda_Ishe/ANERUDO.mp3';
+import babaMakanakaMp3 from '@/music/Zvoda_Ishe/BABA MAKANAKA.mp3';
+import hondoMp3 from '@/music/Zvoda_Ishe/HONDO.mp3';
+import inTheStormMp3 from '@/music/Zvoda_Ishe/In THE STORM.mp3';
+import jesuAripanoMp3 from '@/music/Zvoda_Ishe/JESU ARIPANO.mp3';
+import ndinotendaBabaMp3 from '@/music/Zvoda_Ishe/NDINOTENDA BABA.mp3';
+import tiriKukumbiraNyashaMp3 from '@/music/Zvoda_Ishe/TIRIKUKUMBIRA NYASHA.mp3';
+
 interface Track {
   id: string;
   title: string;
