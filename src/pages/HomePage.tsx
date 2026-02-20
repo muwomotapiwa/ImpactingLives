@@ -19,6 +19,7 @@ import { useAudio, tracks } from '../context/AudioContext';
 import ourStoryImg from '@/assets/Our_Story.jpeg';
 import yaliweImg from '@/assets/Yaliwe.jpeg';
 import tSirikaImg from '@/assets/T Sirika.jpeg';
+import sMlamboImg from '@/assets/S Mlambo.jpeg';
 
 const ministries = [
   {
@@ -81,9 +82,9 @@ const testimonials = [
   {
     id: 3,
     quote: "Their music ministry touched my heart and brought me back to faith. Every song is a blessing.",
-    name: "Grace O.",
+    name: "S. Mlambo",
     role: "Community Member",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80"
+    image: sMlamboImg
   },
 ];
 

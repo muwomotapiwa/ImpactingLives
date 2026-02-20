@@ -5,6 +5,7 @@ import tSirikaImg from '@/assets/T Sirika.jpeg';
 import nMunengwaImg from '@/assets/N Munengwa.jpeg';
 import prideImg from '@/assets/Pride.jpeg';
 import yaliweImg from '@/assets/Yaliwe.jpeg';
+import sMlamboImg from '@/assets/S Mlambo.jpeg';
 
 const impactStats = [
   { icon: Users, number: '500+', label: 'Lives Directly Impacted', color: 'from-gold-400 to-faith-500' },
@@ -31,9 +32,9 @@ const testimonials = [
   {
     id: 3,
     quote: "Their music ministry touched my heart and brought me back to faith. Every song is a blessing that reminds me of God's love.",
-    name: "Grace O.",
+    name: "S. Mlambo",
     role: "Community Member",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80"
+    image: sMlamboImg
   },
   {
     id: 4,
