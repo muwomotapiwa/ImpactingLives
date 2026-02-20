@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Heart, Star, Users, BookOpen, Award, Target, Eye, Compass } from 'lucide-react';
+import founderImg from '@/assets/rumbi_halfbody1.jpg';
 
 const values = [
   { icon: Heart, title: 'Compassion', desc: 'Leading with love and empathy in all our interactions' },
@@ -61,7 +62,7 @@ export function AboutPage() {
             >
               <div className="relative z-10">
                 <img
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80"
+                  src={founderImg}
                   alt="Founder"
                   className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
                 />
