@@ -16,6 +16,7 @@ import {
   Headphones
 } from 'lucide-react';
 import { useAudio, tracks } from '../context/AudioContext';
+import ourStoryImg from '@/assets/Our_Story.jpeg';
 
 const ministries = [
   {
@@ -525,7 +526,7 @@ export function HomePage() {
             >
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1609234656388-0ff363383899?w=800&q=80"
+                  src={ourStoryImg}
                   alt="Community gathering"
                   className="w-full h-[400px] object-cover"
                 />
