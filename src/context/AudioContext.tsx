@@ -1,4 +1,9 @@
 import { createContext, useContext, useState, useRef, useCallback, ReactNode } from 'react';
+import aneNyashaCover from '@/assets/ane_nyasha.jpeg';
+import inTheStormCover from '@/assets/in_the_storm.jpeg';
+import zvodaIsheCover from '@/assets/zvoda_ishe.jpeg';
+import hondoCover from '@/assets/hondo.jpeg';
+import yourNameCover from '@/assets/your_name.jpeg';
 
 interface Track {
   id: string;
@@ -104,48 +109,48 @@ export function AudioProvider({ children }: AudioProviderProps) {
 export const tracks: Track[] = [
   {
     id: '1',
-    title: 'Amazing Grace (Reimagined)',
+    title: 'Ane Nyasha',
     artist: 'ImpactingLives',
     album: 'Songs of Hope',
     duration: '4:32',
     src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-    cover: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80',
+    cover: aneNyashaCover,
     isLatest: true,
   },
   {
     id: '2',
-    title: 'Walking in Faith',
+    title: 'In The Storm',
     artist: 'ImpactingLives',
     album: 'Songs of Hope',
     duration: '3:45',
     src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-    cover: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&q=80',
+    cover: inTheStormCover,
   },
   {
     id: '3',
-    title: 'His Love Endures',
+    title: 'Zvoda Ishe',
     artist: 'ImpactingLives',
     album: 'Hymns of Grace',
     duration: '5:12',
     src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-    cover: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400&q=80',
+    cover: zvodaIsheCover,
   },
   {
     id: '4',
-    title: 'Blessed Assurance',
+    title: 'Hondo',
     artist: 'ImpactingLives',
     album: 'Hymns of Grace',
     duration: '4:08',
     src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
-    cover: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&q=80',
+    cover: hondoCover,
   },
   {
     id: '5',
-    title: 'Joy in the Morning',
+    title: 'Your Name',
     artist: 'ImpactingLives',
     album: 'Songs of Hope',
     duration: '3:56',
     src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
-    cover: 'https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=400&q=80',
+    cover: yourNameCover,
   },
 ];
