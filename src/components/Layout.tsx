@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Heart, ChevronDown } from 'lucide-react';
+import rumbiLogo from '@/assets/RumbiLogo.jpeg';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -43,15 +44,17 @@ export function Layout({ children }: LayoutProps) {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="bg-faith-900 sticky top-0 z-50 shadow-xl"
+        style={{
+          background: 'linear-gradient(90deg, #ffffff 0%, #ffffff 32%, #14061d 55%, #14061d 100%)',
+        }}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="p-2 rounded-full bg-gold-500 group-hover:bg-gold-400 transition-colors">
-              <Heart className="w-6 h-6 text-white" />
-            </div>
-            <span className="font-display text-xl font-semibold text-white">
-              ImpactingLives
-            </span>
+          <Link to="/" className="flex items-center justify-center" style={{ width: 240, height: 48 }}>
+            <img
+              src={rumbiLogo}
+              alt="ImpactingLives logo"
+              className="h-full w-full object-contain"
+            />
           </Link>
 
           {/* Desktop Menu */}

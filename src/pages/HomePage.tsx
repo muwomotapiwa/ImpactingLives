@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { useAudio, tracks } from '../context/AudioContext';
 import ourStoryImg from '@/assets/Our_Story.jpeg';
+import yaliweImg from '@/assets/Yaliwe.jpeg';
 import tSirikaImg from '@/assets/T Sirika.jpeg';
 
 const ministries = [
@@ -66,16 +67,16 @@ const testimonials = [
   {
     id: 1,
     quote: "Rue Impacting Lives turned my life around and changed how I see things. I hope others taste the good fruit God is growing here.",
-    name: "T. Sirika",
+    name: "Joseph Chitambure",
     role: "Community Member",
     image: tSirikaImg
   },
   {
     id: 2,
     quote: "The youth program changed my life. I found purpose, mentorship, and a community that believes in me.",
-    name: "David K.",
+    name: "Yaliwe",
     role: "Youth Haven Graduate",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80"
+    image: yaliweImg
   },
   {
     id: 3,

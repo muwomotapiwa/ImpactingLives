@@ -17,7 +17,7 @@ const testimonials = [
   {
     id: 1,
     quote: "Rue Impacting Lives turned my life around and changed how I see things. I hope others taste the good fruit God is growing here.",
-    name: "T. Sirika",
+    name: "Joseph Chitambure",
     role: "Community Member",
     image: tSirikaImg
   },
