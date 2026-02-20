@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Heart, Star, Users, BookOpen, Award, Target, Eye, Compass } from 'lucide-react';
-import founderImg from '@/assets/rumbi_halfbody1.jpg';
+import founderImg from '@/assets/rumbi_halfbody1.jpeg';
 
 const values = [
   { icon: Heart, title: 'Compassion', desc: 'Leading with love and empathy in all our interactions' },
