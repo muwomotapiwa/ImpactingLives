@@ -295,11 +295,19 @@ export function Layout({ children }: LayoutProps) {
           {/* Bottom Bar */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-faith-500 text-sm">
             <p>
-              Â© {new Date().getFullYear()} ImpactingLives. All rights reserved.
+              © {new Date().getFullYear()} ImpactingLives. All rights reserved.
             </p>
             <p className="flex items-center gap-1">
               Made with <Heart className="w-4 h-4 text-gold-500" /> for His glory
             </p>
+            <a
+              href="https://www.kypextech.co.za/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-gold-400 hover:text-gold-300 transition-colors animate-pulse"
+            >
+              website by kypextech
+            </a>
           </div>
         </div>
       </footer>

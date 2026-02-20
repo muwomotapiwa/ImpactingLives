@@ -9,6 +9,9 @@ import {
   Facebook, 
   Instagram, 
   Youtube,
+  Apple,
+  Music2,
+  Disc3,
   CheckCircle,
   Clock,
   MessageCircle
@@ -223,15 +226,19 @@ export function ContactPage() {
                 </p>
                 <div className="flex gap-4">
                   {[
-                    { icon: Facebook, label: 'Facebook', color: 'hover:bg-gold-500' },
-                    { icon: Instagram, label: 'Instagram', color: 'hover:bg-faith-600' },
-                    { icon: Youtube, label: 'YouTube', color: 'hover:bg-gold-600' },
-                    { icon: MessageCircle, label: 'WhatsApp', color: 'hover:bg-faith-700' },
-                  ].map(({ icon: Icon, label, color }) => (
+                    { icon: Facebook, label: 'Facebook', color: 'hover:bg-gold-500', href: 'https://www.facebook.com/rumbikachembere/' },
+                    { icon: Instagram, label: 'Instagram', color: 'hover:bg-faith-600', href: 'https://www.instagram.com/rumbikachembere' },
+                    { icon: Youtube, label: 'YouTube', color: 'hover:bg-gold-600', href: 'https://www.youtube.com/@rumbikachembere' },
+                    { icon: Music2, label: 'TikTok', color: 'hover:bg-faith-700', href: 'https://www.tiktok.com/rumbidzaikachembere' },
+                    { icon: Disc3, label: 'Spotify', color: 'hover:bg-emerald-500', href: 'https://open.spotify.com/artist/4P2JZmJInzPJuyAMSocqrj' },
+                    { icon: Apple, label: 'Apple Music', color: 'hover:bg-gray-300/70', href: 'https://music.apple.com/gb/artist/rumbi-kachembere/1741061176' },
+                  ].map(({ icon: Icon, label, color, href }) => (
                     <a
                       key={label}
-                      href="#"
+                      href={href}
                       className={`w-14 h-14 bg-white/10 ${color} rounded-xl flex items-center justify-center transition-colors group`}
+                      target={href.startsWith('http') ? '_blank' : undefined}
+                      rel={href.startsWith('http') ? 'noreferrer' : undefined}
                     >
                       <Icon className="w-6 h-6 text-white" />
                     </a>
