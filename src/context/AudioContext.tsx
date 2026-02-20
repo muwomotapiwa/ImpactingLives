@@ -3,8 +3,12 @@ import aneNyashaCover from '@/assets/ane_nyasha.jpeg';
 import inTheStormCover from '@/assets/in_the_storm.jpeg';
 import zvodaIsheCover from '@/assets/zvoda_ishe.jpeg';
 import hondoCover from '@/assets/hondo.jpeg';
+import albumCover from '@/assets/album1.jpeg';
+import bannerMusicCover from '@/assets/banner_Music.jpg';
 import yourNameCover from '@/assets/your_name.jpeg';
 
+import aneNyashaMp3 from '@/music/Zvoda_Ishe/AneNyasha-2.mp3';
+import anerudoMp3 from '@/music/Zvoda_Ishe/ANERUDO.mp3';
 interface Track {
   id: string;
   title: string;
@@ -105,52 +109,78 @@ export function AudioProvider({ children }: AudioProviderProps) {
   );
 }
 
-// Sample tracks data - using royalty-free music samples
 export const tracks: Track[] = [
   {
-    id: '1',
+    id: 'zvoda-1',
     title: 'Ane Nyasha',
-    artist: 'ImpactingLives',
-    album: 'Songs of Hope',
+    artist: 'Zvoda Ishe',
+    album: 'Zvoda Ishe',
     duration: '4:32',
-    src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+    src: aneNyashaMp3,
     cover: aneNyashaCover,
     isLatest: true,
   },
   {
-    id: '2',
-    title: 'In The Storm',
-    artist: 'ImpactingLives',
-    album: 'Songs of Hope',
-    duration: '3:45',
-    src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-    cover: inTheStormCover,
+    id: 'zvoda-2',
+    title: 'Anerudo',
+    artist: 'Zvoda Ishe',
+    album: 'Zvoda Ishe',
+    duration: '3:50',
+    src: anerudoMp3,
+    cover: albumCover,
   },
   {
-    id: '3',
-    title: 'Zvoda Ishe',
-    artist: 'ImpactingLives',
-    album: 'Hymns of Grace',
-    duration: '5:12',
-    src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-    cover: zvodaIsheCover,
+    id: 'zvoda-3',
+    title: 'Baba Makanaka',
+    artist: 'Zvoda Ishe',
+    album: 'Zvoda Ishe',
+    duration: '4:05',
+    src: babaMakanakaMp3,
+    cover: albumCover,
   },
   {
-    id: '4',
+    id: 'zvoda-4',
     title: 'Hondo',
-    artist: 'ImpactingLives',
-    album: 'Hymns of Grace',
-    duration: '4:08',
-    src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
+    artist: 'Zvoda Ishe',
+    album: 'Zvoda Ishe',
+    duration: '4:18',
+    src: hondoMp3,
     cover: hondoCover,
   },
   {
-    id: '5',
-    title: 'Your Name',
-    artist: 'ImpactingLives',
-    album: 'Songs of Hope',
-    duration: '3:56',
-    src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
+    id: 'zvoda-5',
+    title: 'In The Storm',
+    artist: 'Zvoda Ishe',
+    album: 'Zvoda Ishe',
+    duration: '5:10',
+    src: inTheStormMp3,
+    cover: inTheStormCover,
+  },
+  {
+    id: 'zvoda-6',
+    title: 'Jesu Aripano',
+    artist: 'Zvoda Ishe',
+    album: 'Zvoda Ishe',
+    duration: '4:20',
+    src: jesuAripanoMp3,
+    cover: bannerMusicCover,
+  },
+  {
+    id: 'zvoda-7',
+    title: 'Ndinotenda Baba',
+    artist: 'Zvoda Ishe',
+    album: 'Zvoda Ishe',
+    duration: '4:12',
+    src: ndinotendaBabaMp3,
     cover: yourNameCover,
+  },
+  {
+    id: 'zvoda-8',
+    title: 'Tirikukumbira Nyasha',
+    artist: 'Zvoda Ishe',
+    album: 'Zvoda Ishe',
+    duration: '5:05',
+    src: tiriKukumbiraNyashaMp3,
+    cover: zvodaIsheCover,
   },
 ];

@@ -176,6 +176,7 @@ export function MinistryDetailPage() {
   const { ministryId } = useParams<{ ministryId: string }>();
   const ministry = ministryId ? ministriesData[ministryId] : null;
   const { currentTrack, isPlaying, playTrack } = useAudio();
+  const isMusic = ministryId === 'music';
 
   if (!ministry) {
     return (
@@ -197,6 +198,8 @@ export function MinistryDetailPage() {
   // Get the featured track for music ministry
   const featuredTrack = tracks.find(t => t.isLatest) || tracks[0];
   const isFeaturedPlaying = currentTrack?.id === featuredTrack.id && isPlaying;
+  const moreTracks = tracks.filter(t => !t.isLatest);
+  const displayedTracks = isMusic ? moreTracks : moreTracks.slice(0, 3);
 
   return (
     <div>
@@ -325,7 +328,7 @@ export function MinistryDetailPage() {
                   <div className="mt-8 pt-6 border-t border-white/20">
                     <h4 className="font-semibold mb-4">More Tracks</h4>
                     <div className="space-y-2">
-                      {tracks.filter(t => !t.isLatest).slice(0, 3).map((track) => {
+                      {displayedTracks.map((track) => {
                         const isThisPlaying = currentTrack?.id === track.id && isPlaying;
                         return (
                           <div

@@ -90,7 +90,7 @@ export function HomePage() {
   
   // Separate latest track from others
   const latestTrack = tracks.find(t => t.isLatest);
-  const otherTracks = tracks.filter(t => !t.isLatest);
+  const otherTracks = tracks.filter(t => !t.isLatest).slice(0, 4);
 
   return (
     <div>
