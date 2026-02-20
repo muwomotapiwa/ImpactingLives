@@ -6,6 +6,7 @@ import {
   Flower2, Users2, MessageCircle, Calendar, Star, Quote
 } from 'lucide-react';
 import { useAudio, tracks } from '../context/AudioContext';
+import bannerRumbie from '@/assets/BannerRumbie.jpeg';
 
 const ministriesData: Record<string, {
   icon: React.ComponentType<{ className?: string }>;
@@ -28,7 +29,7 @@ const ministriesData: Record<string, {
     title: 'Music Ministry',
     tagline: 'Lifting Spirits Through Song',
     description: 'Sharing the gospel through inspirational music and worship',
-    image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1600&q=80',
+    image: bannerRumbie,
     color: 'from-gold-400 to-faith-500',
     bgLight: 'bg-gold-50',
     textColor: 'text-gold-700',
@@ -57,7 +58,7 @@ const ministriesData: Record<string, {
     title: "Children's Sanctuary",
     tagline: 'Nurturing Young Hearts',
     description: 'Providing love, care, and support to vulnerable children',
-    image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&q=80',
+    image: bannerRumbie,
     color: 'from-gold-300 to-gold-500',
     bgLight: 'bg-gold-50',
     textColor: 'text-gold-700',
@@ -86,7 +87,7 @@ const ministriesData: Record<string, {
     title: 'Youth Haven',
     tagline: "Empowering Tomorrow's Leaders",
     description: 'Focusing on youth support, mental health, and empowerment',
-    image: 'https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1600&q=80',
+    image: bannerRumbie,
     color: 'from-faith-400 to-faith-600',
     bgLight: 'bg-faith-50',
     textColor: 'text-faith-700',
@@ -115,7 +116,7 @@ const ministriesData: Record<string, {
     title: "Women's Lift",
     tagline: 'Strengthening Sisters in Faith',
     description: 'Prayer support and empowerment for women',
-    image: 'https://images.unsplash.com/photo-1609234656388-0ff363383899?w=1600&q=80',
+    image: bannerRumbie,
     color: 'from-gold-500 to-faith-600',
     bgLight: 'bg-gold-50',
     textColor: 'text-gold-600',
