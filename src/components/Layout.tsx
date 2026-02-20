@@ -43,10 +43,7 @@ export function Layout({ children }: LayoutProps) {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="bg-faith-900 sticky top-0 z-50 shadow-xl"
-        style={{
-          background: 'linear-gradient(90deg, #ffffff 0%, #ffffff 32%, #14061d 55%, #14061d 100%)',
-        }}
+        className="sticky top-0 z-50 shadow-xl bg-white lg:bg-faith-900 lg:[background:linear-gradient(90deg,#ffffff_0%,#ffffff_32%,#14061d_55%,#14061d_100%)]"
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center justify-center" style={{ width: 240, height: 48 }}>
@@ -122,7 +119,7 @@ export function Layout({ children }: LayoutProps) {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-white"
+            className="lg:hidden p-2 rounded-lg text-faith-900"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
