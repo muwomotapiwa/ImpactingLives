@@ -24,7 +24,7 @@ const ministries = [
     icon: Music,
     title: 'Music Ministry',
     tagline: 'Lifting Spirits Through Song',
-    color: 'from-purple-500 to-indigo-600',
+    color: 'from-gold-400 to-faith-500',
     href: '/ministries/music',
   },
   {
@@ -32,7 +32,7 @@ const ministries = [
     icon: Baby,
     title: "Children's Sanctuary",
     tagline: 'Nurturing Young Hearts',
-    color: 'from-rose-500 to-pink-600',
+    color: 'from-gold-300 to-gold-500',
     href: '/ministries/children',
   },
   {
@@ -40,7 +40,7 @@ const ministries = [
     icon: Users,
     title: 'Youth Haven',
     tagline: 'Empowering Tomorrow\'s Leaders',
-    color: 'from-blue-500 to-cyan-600',
+    color: 'from-faith-400 to-faith-600',
     href: '/ministries/youth',
   },
   {
@@ -48,7 +48,7 @@ const ministries = [
     icon: Heart,
     title: "Women's Lift",
     tagline: 'Strengthening Sisters in Faith',
-    color: 'from-gold-500 to-amber-600',
+    color: 'from-gold-500 to-faith-600',
     href: '/ministries/women',
   },
   {
@@ -56,7 +56,7 @@ const ministries = [
     icon: BookHeart,
     title: 'Faith Moments',
     tagline: 'Daily Spiritual Nourishment',
-    color: 'from-emerald-500 to-teal-600',
+    color: 'from-faith-500 to-faith-700',
     href: '/ministries/faith',
   },
 ];
@@ -230,7 +230,7 @@ export function HomePage() {
       <section className="py-24 bg-gradient-to-b from-faith-900 via-faith-800 to-faith-900 relative overflow-hidden">
         {/* Background decorations */}
         <div className="absolute inset-0 bg-pattern opacity-5" />
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-faith-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl" />
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -268,7 +268,7 @@ export function HomePage() {
                   ✨ Latest Release
                 </div>
                 
-                <div className="bg-gradient-to-br from-purple-600 via-indigo-600 to-purple-700 rounded-3xl p-8 lg:p-10 shadow-2xl relative overflow-hidden h-full flex flex-col justify-center">
+                <div className="bg-gradient-to-br from-gold-500 via-faith-600 to-faith-700 rounded-3xl p-8 lg:p-10 shadow-2xl relative overflow-hidden h-full flex flex-col justify-center">
                   {/* Decorative elements */}
                   <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
                   <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
@@ -312,7 +312,7 @@ export function HomePage() {
                       {/* Play Button */}
                       <button
                         onClick={() => playTrack(latestTrack)}
-                        className="inline-flex items-center gap-3 bg-white hover:bg-gray-100 text-purple-600 px-10 py-4 rounded-full font-bold shadow-lg transition-all group text-lg"
+                        className="inline-flex items-center gap-3 bg-white hover:bg-faith-50 text-gold-600 px-10 py-4 rounded-full font-bold shadow-lg transition-all group text-lg"
                       >
                         {currentTrack?.id === latestTrack.id && isPlaying ? (
                           <>

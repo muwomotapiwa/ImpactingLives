@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { Quote, Heart, Users, Home, Sparkles, Star, ArrowRight } from 'lucide-react';
 
 const impactStats = [
-  { icon: Users, number: '500+', label: 'Lives Directly Impacted', color: 'from-blue-500 to-cyan-500' },
-  { icon: Home, number: '50+', label: 'Children Supported', color: 'from-rose-500 to-pink-500' },
-  { icon: Heart, number: '200+', label: 'Women Empowered', color: 'from-gold-500 to-amber-500' },
-  { icon: Sparkles, number: '1000+', label: 'Prayer Moments Shared', color: 'from-purple-500 to-indigo-500' },
+  { icon: Users, number: '500+', label: 'Lives Directly Impacted', color: 'from-gold-400 to-faith-500' },
+  { icon: Home, number: '50+', label: 'Children Supported', color: 'from-gold-300 to-gold-500' },
+  { icon: Heart, number: '200+', label: 'Women Empowered', color: 'from-gold-500 to-faith-600' },
+  { icon: Sparkles, number: '1000+', label: 'Prayer Moments Shared', color: 'from-faith-500 to-faith-700' },
 ];
 
 const testimonials = [
@@ -323,12 +323,12 @@ export function ImpactPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="bg-gradient-to-br from-gold-500/20 to-purple-500/20 rounded-3xl p-8">
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+              <div className="bg-gradient-to-br from-gold-500/20 to-faith-500/20 rounded-3xl p-8">
                 <div className="bg-white rounded-2xl p-8 shadow-xl">
                   <h3 className="font-display text-2xl font-bold text-faith-900 mb-6">
                     Help Us Grow
@@ -342,13 +342,13 @@ export function ImpactPage() {
                       <span className="text-faith-700">Children's Home Fund</span>
                       <span className="font-bold text-gold-600">65% raised</span>
                     </div>
-                    <div className="flex items-center justify-between p-4 bg-blue-50 rounded-xl">
+                    <div className="flex items-center justify-between p-4 bg-faith-50 rounded-xl">
                       <span className="text-faith-700">Youth Programs</span>
-                      <span className="font-bold text-blue-600">45% raised</span>
+                      <span className="font-bold text-faith-600">45% raised</span>
                     </div>
-                    <div className="flex items-center justify-between p-4 bg-purple-50 rounded-xl">
+                    <div className="flex items-center justify-between p-4 bg-gold-50 rounded-xl">
                       <span className="text-faith-700">Music Ministry Tour</span>
-                      <span className="font-bold text-purple-600">30% raised</span>
+                      <span className="font-bold text-gold-600">30% raised</span>
                     </div>
                   </div>
                   <Link

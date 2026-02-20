@@ -4,27 +4,29 @@
   --font-display: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
   
-  --color-gold-50: #fdfbf7;
-  --color-gold-100: #f9f3e3;
-  --color-gold-200: #f3e7c7;
-  --color-gold-300: #e8d49f;
-  --color-gold-400: #d4b872;
-  --color-gold-500: #c9a227;
-  --color-gold-600: #b8922a;
-  --color-gold-700: #997524;
-  --color-gold-800: #7d5f22;
-  --color-gold-900: #674e1f;
+  --color-gold-50: #fdecfc;
+  --color-gold-100: #fbe8f3;
+  --color-gold-200: #f5c6e0;
+  --color-gold-300: #ed98c8;
+  --color-gold-400: #c489b3;
+  --color-gold-500: #d61b84;
+  --color-gold-600: #b71b7a;
+  --color-gold-700: #8c196c;
+  --color-gold-800: #62175d;
+  --color-gold-900: #572357;
+  --color-gold-950: #2c122c;
   
-  --color-faith-50: #f0f4f8;
-  --color-faith-100: #d9e2ec;
-  --color-faith-200: #bcccdc;
-  --color-faith-300: #9fb3c8;
-  --color-faith-400: #829ab1;
-  --color-faith-500: #627d98;
-  --color-faith-600: #486581;
-  --color-faith-700: #334e68;
-  --color-faith-800: #243b53;
-  --color-faith-900: #102a43;
+  --color-faith-50: #efe8ef;
+  --color-faith-100: #d8c5d6;
+  --color-faith-200: #c0a2be;
+  --color-faith-300: #a97fa6;
+  --color-faith-400: #915d8e;
+  --color-faith-500: #7e417a;
+  --color-faith-600: #62175d;
+  --color-faith-700: #572357;
+  --color-faith-800: #400f3c;
+  --color-faith-900: #310c2e;
+  --color-faith-950: #270925;
 }
 
 html {
@@ -40,14 +42,19 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #c9a227 0%, #d4b872 50%, #c9a227 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-gold-400) 0%,
+    var(--color-faith-500) 50%,
+    var(--color-gold-500) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .bg-pattern {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a227' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d61b84' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .animate-float {
@@ -64,6 +71,6 @@ body {
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 20px rgba(201, 162, 39, 0.3); }
-  to { box-shadow: 0 0 40px rgba(201, 162, 39, 0.6); }
+  from { box-shadow: 0 0 20px rgba(214, 27, 132, 0.3); }
+  to { box-shadow: 0 0 40px rgba(214, 27, 132, 0.6); }
 }

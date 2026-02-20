@@ -10,9 +10,9 @@ const ministries = [
     tagline: 'Lifting Spirits Through Song',
     description: 'Sharing the gospel through inspirational music and worship. Our music ministry produces uplifting gospel songs that touch hearts and draw people closer to God.',
     image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80',
-    color: 'from-purple-500 to-indigo-600',
-    bgLight: 'bg-purple-50',
-    textColor: 'text-purple-600',
+    color: 'from-gold-400 to-faith-500',
+    bgLight: 'bg-gold-50',
+    textColor: 'text-gold-700',
     href: '/ministries/music',
   },
   {
@@ -22,9 +22,9 @@ const ministries = [
     tagline: 'Nurturing Young Hearts',
     description: 'Providing love, care, and support to vulnerable children. We coordinate with children\'s homes and donors to ensure every child experiences the warmth of family.',
     image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80',
-    color: 'from-rose-500 to-pink-600',
-    bgLight: 'bg-rose-50',
-    textColor: 'text-rose-600',
+    color: 'from-gold-300 to-gold-500',
+    bgLight: 'bg-gold-50',
+    textColor: 'text-gold-700',
     href: '/ministries/children',
   },
   {
@@ -34,9 +34,9 @@ const ministries = [
     tagline: 'Empowering Tomorrow\'s Leaders',
     description: 'A newly introduced initiative focusing on youth support, mental health awareness, addressing unemployment challenges, and rehabilitation programs.',
     image: 'https://images.unsplash.com/photo-1529390079861-591de354faf5?w=800&q=80',
-    color: 'from-blue-500 to-cyan-600',
-    bgLight: 'bg-blue-50',
-    textColor: 'text-blue-600',
+    color: 'from-faith-400 to-faith-600',
+    bgLight: 'bg-faith-50',
+    textColor: 'text-faith-700',
     href: '/ministries/youth',
   },
   {
@@ -46,9 +46,9 @@ const ministries = [
     tagline: 'Strengthening Sisters in Faith',
     description: 'A prayer group and support network providing emotional, spiritual, and financial assistance to women in need. Building community and empowerment.',
     image: 'https://images.unsplash.com/photo-1609234656388-0ff363383899?w=800&q=80',
-    color: 'from-gold-500 to-amber-600',
+    color: 'from-gold-500 to-faith-600',
     bgLight: 'bg-gold-50',
-    textColor: 'text-gold-600',
+    textColor: 'text-gold-700',
     href: '/ministries/women',
   },
   {
@@ -58,9 +58,9 @@ const ministries = [
     tagline: 'Daily Spiritual Nourishment',
     description: 'Spiritual encouragement content featuring faith-based teachings, reflections, and motivational messaging rooted in Christian values.',
     image: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&q=80',
-    color: 'from-emerald-500 to-teal-600',
-    bgLight: 'bg-emerald-50',
-    textColor: 'text-emerald-600',
+    color: 'from-faith-500 to-faith-700',
+    bgLight: 'bg-faith-50',
+    textColor: 'text-faith-700',
     href: '/ministries/faith',
   },
 ];
@@ -71,7 +71,7 @@ export function MinistriesPage() {
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-b from-faith-900 to-faith-800 overflow-hidden">
         <div className="absolute inset-0 bg-pattern opacity-5" />
-        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-faith-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl" />
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">

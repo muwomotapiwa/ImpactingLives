@@ -163,19 +163,19 @@ export function AboutPage() {
                 icon: Target,
                 title: 'Our Mission',
                 desc: "To impact lives through faith-driven community outreach, bringing hope, healing, and empowerment to individuals and communities through God's love and practical support.",
-                color: 'from-rose-500 to-pink-600',
+                color: 'from-gold-400 to-faith-500',
               },
               {
                 icon: Eye,
                 title: 'Our Vision',
                 desc: 'A transformed community where every individual experiences the love of God, finds purpose, and is empowered to reach their full potential.',
-                color: 'from-gold-500 to-amber-600',
+                color: 'from-gold-500 to-faith-600',
               },
               {
                 icon: Compass,
                 title: 'Our Purpose',
                 desc: 'To be a beacon of hope and a catalyst for positive change, addressing spiritual, emotional, and practical needs through comprehensive ministry.',
-                color: 'from-blue-500 to-cyan-600',
+                color: 'from-faith-400 to-faith-700',
               },
             ].map((item, index) => (
               <motion.div

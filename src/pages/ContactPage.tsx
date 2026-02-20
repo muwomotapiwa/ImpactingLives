@@ -30,7 +30,7 @@ export function ContactPage() {
       <section className="relative py-24 bg-gradient-to-b from-faith-900 to-faith-800 overflow-hidden">
         <div className="absolute inset-0 bg-pattern opacity-5" />
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-faith-500/10 rounded-full blur-3xl" />
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
@@ -75,13 +75,13 @@ export function ContactPage() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="bg-green-50 border border-green-200 rounded-2xl p-12 text-center"
+                  className="bg-gold-50 border border-gold-200 rounded-2xl p-12 text-center"
                 >
-                  <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="w-20 h-20 bg-gold-500 rounded-full flex items-center justify-center mx-auto mb-6">
                     <CheckCircle className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-green-800 mb-2">Message Sent!</h3>
-                  <p className="text-green-600">
+                  <h3 className="text-2xl font-bold text-faith-900 mb-2">Message Sent!</h3>
+                  <p className="text-faith-700">
                     Thank you for reaching out. We'll get back to you soon. God bless!
                   </p>
                 </motion.div>
@@ -177,37 +177,37 @@ export function ContactPage() {
                   </div>
                 </div>
 
-                <div className="bg-blue-50 rounded-2xl p-6 flex items-start gap-4">
-                  <div className="w-14 h-14 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="bg-faith-50 rounded-2xl p-6 flex items-start gap-4">
+                  <div className="w-14 h-14 bg-faith-500 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Phone className="w-7 h-7 text-white" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-faith-900 mb-1">Call Us</h3>
-                    <a href="tel:+1234567890" className="text-blue-600 hover:text-blue-700 transition-colors">
+                    <a href="tel:+1234567890" className="text-faith-700 hover:text-faith-800 transition-colors">
                       +1 (234) 567-890
                     </a>
                     <p className="text-faith-500 text-sm mt-1">Mon-Fri, 9am-5pm</p>
                   </div>
                 </div>
 
-                <div className="bg-purple-50 rounded-2xl p-6 flex items-start gap-4">
-                  <div className="w-14 h-14 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="bg-gold-50 rounded-2xl p-6 flex items-start gap-4">
+                  <div className="w-14 h-14 bg-faith-600 rounded-xl flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-7 h-7 text-white" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-faith-900 mb-1">Visit Us</h3>
-                    <p className="text-purple-600">Community Center, City Name</p>
+                    <p className="text-faith-700">Community Center, City Name</p>
                     <p className="text-faith-500 text-sm mt-1">Sunday services at 10am</p>
                   </div>
                 </div>
 
-                <div className="bg-rose-50 rounded-2xl p-6 flex items-start gap-4">
-                  <div className="w-14 h-14 bg-rose-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="bg-faith-50 rounded-2xl p-6 flex items-start gap-4">
+                  <div className="w-14 h-14 bg-gold-500 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Clock className="w-7 h-7 text-white" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-faith-900 mb-1">Office Hours</h3>
-                    <p className="text-rose-600">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                    <p className="text-gold-600">Monday - Friday: 9:00 AM - 5:00 PM</p>
                     <p className="text-faith-500 text-sm mt-1">Sunday: After service</p>
                   </div>
                 </div>
@@ -223,10 +223,10 @@ export function ContactPage() {
                 </p>
                 <div className="flex gap-4">
                   {[
-                    { icon: Facebook, label: 'Facebook', color: 'hover:bg-blue-600' },
-                    { icon: Instagram, label: 'Instagram', color: 'hover:bg-pink-600' },
-                    { icon: Youtube, label: 'YouTube', color: 'hover:bg-red-600' },
-                    { icon: MessageCircle, label: 'WhatsApp', color: 'hover:bg-green-600' },
+                    { icon: Facebook, label: 'Facebook', color: 'hover:bg-gold-500' },
+                    { icon: Instagram, label: 'Instagram', color: 'hover:bg-faith-600' },
+                    { icon: Youtube, label: 'YouTube', color: 'hover:bg-gold-600' },
+                    { icon: MessageCircle, label: 'WhatsApp', color: 'hover:bg-faith-700' },
                   ].map(({ icon: Icon, label, color }) => (
                     <a
                       key={label}

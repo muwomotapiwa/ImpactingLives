@@ -29,9 +29,9 @@ const ministriesData: Record<string, {
     tagline: 'Lifting Spirits Through Song',
     description: 'Sharing the gospel through inspirational music and worship',
     image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1600&q=80',
-    color: 'from-purple-500 to-indigo-600',
-    bgLight: 'bg-purple-50',
-    textColor: 'text-purple-600',
+    color: 'from-gold-400 to-faith-500',
+    bgLight: 'bg-gold-50',
+    textColor: 'text-gold-700',
     content: {
       overview: 'Our Music Ministry is dedicated to spreading the gospel through the power of song and worship. We believe music is a universal language that transcends barriers and touches the deepest parts of the soul. Through original compositions, worship sessions, and album releases, we reach hearts and draw people closer to God\'s presence.',
       features: [
@@ -58,9 +58,9 @@ const ministriesData: Record<string, {
     tagline: 'Nurturing Young Hearts',
     description: 'Providing love, care, and support to vulnerable children',
     image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&q=80',
-    color: 'from-rose-500 to-pink-600',
-    bgLight: 'bg-rose-50',
-    textColor: 'text-rose-600',
+    color: 'from-gold-300 to-gold-500',
+    bgLight: 'bg-gold-50',
+    textColor: 'text-gold-700',
     content: {
       overview: 'Children\'s Sanctuary is our dedicated initiative to support vulnerable children in our community. We partner with children\'s homes, coordinate donations, and work to ensure every child experiences love, care, and the opportunity for a better future. Our long-term vision includes establishing a dedicated facility to provide comprehensive care.',
       features: [
@@ -87,9 +87,9 @@ const ministriesData: Record<string, {
     tagline: "Empowering Tomorrow's Leaders",
     description: 'Focusing on youth support, mental health, and empowerment',
     image: 'https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1600&q=80',
-    color: 'from-blue-500 to-cyan-600',
-    bgLight: 'bg-blue-50',
-    textColor: 'text-blue-600',
+    color: 'from-faith-400 to-faith-600',
+    bgLight: 'bg-faith-50',
+    textColor: 'text-faith-700',
     content: {
       overview: 'Youth Haven is our newest initiative focused on supporting young people through the unique challenges they face. We address mental health awareness, unemployment challenges, and provide rehabilitation and empowerment programs. Our goal is to equip youth with the tools, skills, and support they need to thrive.',
       features: [
@@ -116,7 +116,7 @@ const ministriesData: Record<string, {
     tagline: 'Strengthening Sisters in Faith',
     description: 'Prayer support and empowerment for women',
     image: 'https://images.unsplash.com/photo-1609234656388-0ff363383899?w=1600&q=80',
-    color: 'from-gold-500 to-amber-600',
+    color: 'from-gold-500 to-faith-600',
     bgLight: 'bg-gold-50',
     textColor: 'text-gold-600',
     content: {
@@ -145,9 +145,9 @@ const ministriesData: Record<string, {
     tagline: 'Daily Spiritual Nourishment',
     description: 'Spiritual encouragement and faith-based teachings',
     image: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1600&q=80',
-    color: 'from-emerald-500 to-teal-600',
-    bgLight: 'bg-emerald-50',
-    textColor: 'text-emerald-600',
+    color: 'from-faith-500 to-faith-700',
+    bgLight: 'bg-faith-50',
+    textColor: 'text-faith-700',
     content: {
       overview: 'Faith Moments provides daily spiritual nourishment through teachings, reflections, and motivational content rooted in Christian values. We share encouragement through various platforms, helping believers grow in their faith and find strength for life\'s journey.',
       features: [
@@ -285,7 +285,7 @@ export function MinistryDetailPage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-8 mb-12 text-white"
+                className="bg-gradient-to-r from-gold-500 to-faith-600 rounded-2xl p-8 mb-12 text-white"
                 >
                   <h3 className="font-display text-2xl font-bold mb-6">Featured Track</h3>
                   <div className="flex items-center gap-6">
