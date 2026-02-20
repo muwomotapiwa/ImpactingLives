@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { useAudio, tracks } from '../context/AudioContext';
 import ourStoryImg from '@/assets/Our_Story.jpeg';
+import tSirikaImg from '@/assets/T Sirika.jpeg';
 
 const ministries = [
   {
@@ -64,10 +65,10 @@ const ministries = [
 const testimonials = [
   {
     id: 1,
-    quote: "ImpactingLives gave me hope when I had none. The prayer support and community helped me through my darkest days.",
-    name: "Sarah M.",
-    role: "Women's Lift Member",
-    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&q=80"
+    quote: "Rue Impacting Lives turned my life around and changed how I see things. I hope others taste the good fruit God is growing here.",
+    name: "T. Sirika",
+    role: "Community Member",
+    image: tSirikaImg
   },
   {
     id: 2,

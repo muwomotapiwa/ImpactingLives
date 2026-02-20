@@ -133,9 +133,9 @@ const ministriesData: Record<string, {
         'https://images.unsplash.com/photo-1571844307880-751c6d86f3f3?w=600&q=80',
       ],
       testimonial: {
-        quote: 'Women\'s Lift gave me hope when I had none. The prayer support and community helped me through my darkest days.',
-        name: 'Sarah M.',
-        role: 'Member',
+        quote: 'Rue Impacting Lives turned my life around and changed how I see things. I hope others taste the good fruit God is growing here.',
+        name: 'T. Sirika',
+        role: 'Women\'s Lift Member',
       },
     },
   },

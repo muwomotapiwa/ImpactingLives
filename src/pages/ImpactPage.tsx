@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Quote, Heart, Users, Home, Sparkles, Star, ArrowRight } from 'lucide-react';
+import tSirikaImg from '@/assets/T Sirika.jpeg';
+import nMunengwaImg from '@/assets/N Munengwa.jpeg';
+import prideImg from '@/assets/Pride.jpeg';
+import yaliweImg from '@/assets/Yaliwe.jpeg';
 
 const impactStats = [
   { icon: Users, number: '500+', label: 'Lives Directly Impacted', color: 'from-gold-400 to-faith-500' },
@@ -12,17 +16,17 @@ const impactStats = [
 const testimonials = [
   {
     id: 1,
-    quote: "ImpactingLives gave me hope when I had none. The prayer support and community helped me through my darkest days. I found a sisterhood that truly cares.",
-    name: "Sarah M.",
-    role: "Women's Lift Member",
-    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&q=80"
+    quote: "Rue Impacting Lives turned my life around and changed how I see things. I hope others taste the good fruit God is growing here.",
+    name: "T. Sirika",
+    role: "Community Member",
+    image: tSirikaImg
   },
   {
     id: 2,
     quote: "The youth program changed my life. I found purpose, mentorship, and a community that believes in me. Now I'm helping others on the same journey.",
-    name: "David K.",
+    name: "Yaliwe",
     role: "Youth Haven Graduate",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80"
+    image: yaliweImg
   },
   {
     id: 3,
@@ -41,16 +45,16 @@ const testimonials = [
   {
     id: 5,
     quote: "The financial assistance during my time of need was a true blessing. More than money, they gave me hope and a community to lean on.",
-    name: "Elizabeth N.",
+    name: "N. Munengwa",
     role: "Community Member",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80"
+    image: nMunengwaImg
   },
   {
     id: 6,
-    quote: "Faith Moments devotions have become an essential part of my morning routine. The teachings are profound yet practical.",
-    name: "James N.",
-    role: "Faith Moments Follower",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80"
+    quote: "ImpactingLives stepped in with school fees and supplies when I needed them most, keeping me in class and focused on my future.",
+    name: "Pride",
+    role: "Student",
+    image: prideImg
   },
 ];
 
