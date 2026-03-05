@@ -74,7 +74,7 @@ const testimonials = [
   },
   {
     id: 2,
-    quote: "The youth program changed my life. I found purpose, mentorship, and a community that believes in me.",
+    quote: "Impacting Lives Women's Lift has transformed my life! We pray together, lift each other up, and walk alongside one another through life's ups and downs 🙏. It's a sisterhood where love, support, and prayer are real.",
     name: "Yaliwe",
     role: "Youth Haven Graduate",
     image: yaliweImg
