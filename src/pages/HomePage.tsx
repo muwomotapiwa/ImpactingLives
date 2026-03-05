@@ -186,7 +186,7 @@ export function HomePage() {
               to="/ministries"
               className="group bg-gold-500 hover:bg-gold-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-2xl shadow-gold-500/30 transition-all flex items-center gap-2"
             >
-              Explore Our Work
+              Explore Our Impact
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             
