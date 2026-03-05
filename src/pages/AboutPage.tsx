@@ -11,12 +11,12 @@ const values = [
 ];
 
 const timeline = [
-  { year: '2014', title: "Women's Prayer Group Founded", desc: "Started as a small gathering of women seeking spiritual support" },
-  { year: '2016', title: 'Music Ministry Launched', desc: 'Released first gospel album, reaching hearts through worship' },
-  { year: '2018', title: "Children's Sanctuary Established", desc: 'Began supporting vulnerable children in the community' },
+  { year: '2016', title: "Women's Prayer Group Founded", desc: "Started as a small gathering of women seeking spiritual support" },
+  { year: '2016', title: "Children's Sanctuary Established", desc: 'Began supporting vulnerable children in the community' },
+  { year: '2017', title: 'Music Ministry Launched', desc: 'Released first gospel album, reaching hearts through worship' },
   { year: '2020', title: 'Expanded Community Outreach', desc: 'Grew partnerships and increased impact during challenging times' },
-  { year: '2022', title: 'Youth Haven Initiative', desc: 'Launched programs for youth empowerment and mental health' },
   { year: '2024', title: 'Continued Growth', desc: 'Expanding reach and deepening community connections' },
+  { year: '2026', title: 'Youth Haven Initiative', desc: 'Launched programs for youth empowerment and mental health' },
 ];
 
 export function AboutPage() {

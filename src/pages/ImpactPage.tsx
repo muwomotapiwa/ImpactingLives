@@ -6,6 +6,16 @@ import nMunengwaImg from '@/assets/N Munengwa.jpeg';
 import prideImg from '@/assets/Pride.jpeg';
 import yaliweImg from '@/assets/Yaliwe.jpeg';
 import sMlamboImg from '@/assets/S Mlambo.jpeg';
+import rumbi1 from '@/assets/RumbiImages/Rumbi_1.JPEG';
+import rumbi3b from '@/assets/RumbiImages/Rumbi_3b.JPEG';
+import rumbi5 from '@/assets/RumbiImages/Rumbi_5.JPEG';
+import rumbi7 from '@/assets/RumbiImages/Rumbi_7.JPEG';
+import rumbi10 from '@/assets/RumbiImages/Rumbi_10.JPEG';
+import rumbi14 from '@/assets/RumbiImages/Rumbi_14.JPEG';
+import rumbi17 from '@/assets/RumbiImages/Rumbi_17.JPEG';
+import rumbi22 from '@/assets/RumbiImages/Rumbi_22.JPEG';
+import rumbi28 from '@/assets/RumbiImages/Rumbi_28.JPEG';
+import rumbi33 from '@/assets/RumbiImages/Rumbi_33.JPEG';
 
 const impactStats = [
   { icon: Users, number: '500+', label: 'Lives Directly Impacted', color: 'from-gold-400 to-faith-500' },
@@ -60,14 +70,16 @@ const testimonials = [
 ];
 
 const galleryImages = [
-  { url: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80', caption: 'Children\'s outreach program' },
-  { url: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80', caption: 'Community worship event' },
-  { url: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80', caption: 'Youth mentorship session' },
-  { url: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&q=80', caption: 'Team collaboration' },
-  { url: 'https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=600&q=80', caption: 'Community gathering' },
-  { url: 'https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600&q=80', caption: 'Youth empowerment' },
-  { url: 'https://images.unsplash.com/photo-1609234656388-0ff363383899?w=600&q=80', caption: 'Women\'s fellowship' },
-  { url: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80', caption: 'Music ministry performance' },
+  { url: rumbi1, caption: 'Rumbi - Moment 1' },
+  { url: rumbi3b, caption: 'Rumbi - Moment 2' },
+  { url: rumbi5, caption: 'Rumbi - Moment 3' },
+  { url: rumbi7, caption: 'Rumbi - Moment 4' },
+  { url: rumbi10, caption: 'Rumbi - Moment 5' },
+  { url: rumbi14, caption: 'Rumbi - Moment 6' },
+  { url: rumbi17, caption: 'Rumbi - Moment 7' },
+  { url: rumbi22, caption: 'Rumbi - Moment 8' },
+  { url: rumbi28, caption: 'Rumbi - Moment 9' },
+  { url: rumbi33, caption: 'Rumbi - Moment 10' },
 ];
 
 export function ImpactPage() {
@@ -238,7 +250,7 @@ export function ImpactPage() {
               Gallery
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-faith-900 mb-6">
-              Moments of <span className="text-gradient">Impact</span>
+              Rumbi&apos;s <span className="text-gradient">Journey</span>
             </h2>
           </motion.div>
 
