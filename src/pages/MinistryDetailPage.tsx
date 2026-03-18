@@ -77,7 +77,7 @@ const ministriesData: Record<string, {
       ],
       testimonial: {
         quote: 'Thanks to this program, our children receive regular support and know they are loved by a caring community.',
-        name: 'Margaret T.',
+        name: 'C Nyakond',
         role: "Children's Home Director",
       },
     },

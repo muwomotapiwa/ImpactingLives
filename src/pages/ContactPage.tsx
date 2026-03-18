@@ -5,7 +5,6 @@ import {
   Phone, 
   MapPin, 
   Send, 
-  Heart, 
   Facebook, 
   Instagram, 
   Youtube,
@@ -19,7 +18,6 @@ import {
 
 export function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
-  const [donationAmount, setDonationAmount] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -116,7 +114,7 @@ export function ContactPage() {
                     <input
                       type="tel"
                       className="w-full border border-faith-200 rounded-xl px-4 py-3 text-faith-900 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20 transition-all"
-                      placeholder="+1 (234) 567-890"
+                      placeholder="+44 7770 026798"
                     />
                   </div>
 
@@ -173,8 +171,8 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-faith-900 mb-1">Email Us</h3>
-                    <a href="mailto:info@impactinglives.org" className="text-gold-600 hover:text-gold-700 transition-colors">
-                      info@impactinglives.org
+                    <a href="mailto:rue.impactinglives@gmail.com" className="text-gold-600 hover:text-gold-700 transition-colors">
+                      rue.impactinglives@gmail.com
                     </a>
                     <p className="text-faith-500 text-sm mt-1">We respond within 24 hours</p>
                   </div>
@@ -186,8 +184,8 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-faith-900 mb-1">Call Us</h3>
-                    <a href="tel:+1234567890" className="text-faith-700 hover:text-faith-800 transition-colors">
-                      +1 (234) 567-890
+                    <a href="tel:+447770026798" className="text-faith-700 hover:text-faith-800 transition-colors">
+                      +44 7770 026798
                     </a>
                     <p className="text-faith-500 text-sm mt-1">Mon-Fri, 9am-5pm</p>
                   </div>
@@ -247,75 +245,6 @@ export function ContactPage() {
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Donation Section */}
-      <section className="py-24 bg-gradient-to-r from-gold-500 to-gold-600 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
-        
-        <div className="max-w-4xl mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Heart className="w-10 h-10 text-white" />
-            </div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
-              Support Our Mission
-            </h2>
-            <p className="text-white/90 text-xl mb-10 max-w-2xl mx-auto">
-              Your generous donation helps us continue our work in the community. 
-              Every contribution makes a difference in someone's life.
-            </p>
-
-            <div className="bg-white rounded-3xl p-8 max-w-xl mx-auto">
-              <h3 className="font-display text-2xl font-bold text-faith-900 mb-6">
-                Make a Donation
-              </h3>
-              
-              <div className="grid grid-cols-4 gap-3 mb-6">
-                {['$10', '$25', '$50', '$100'].map((amount) => (
-                  <button
-                    key={amount}
-                    onClick={() => setDonationAmount(amount)}
-                    className={`py-3 rounded-xl font-semibold transition-all ${
-                      donationAmount === amount
-                        ? 'bg-gold-500 text-white'
-                        : 'bg-gold-100 text-gold-700 hover:bg-gold-200'
-                    }`}
-                  >
-                    {amount}
-                  </button>
-                ))}
-              </div>
-              
-              <div className="mb-6">
-                <label className="block text-faith-600 text-sm mb-2">Or enter custom amount</label>
-                <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-faith-400">$</span>
-                  <input
-                    type="number"
-                    placeholder="0.00"
-                    className="w-full border border-faith-200 rounded-xl pl-8 pr-4 py-3 text-faith-900 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20"
-                    onChange={(e) => setDonationAmount(e.target.value ? `$${e.target.value}` : null)}
-                  />
-                </div>
-              </div>
-              
-              <button className="w-full bg-gold-500 hover:bg-gold-600 text-white py-4 rounded-xl font-bold shadow-lg transition-colors">
-                Donate {donationAmount || 'Now'}
-              </button>
-              
-              <p className="text-faith-500 text-sm mt-4">
-                All donations are secure and encrypted. Thank you for your generosity.
-              </p>
-            </div>
-          </motion.div>
         </div>
       </section>
 

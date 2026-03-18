@@ -6,6 +6,7 @@ import nMunengwaImg from '@/assets/N Munengwa.jpeg';
 import prideImg from '@/assets/Pride.jpeg';
 import yaliweImg from '@/assets/Yaliwe.jpeg';
 import sMlamboImg from '@/assets/S Mlambo.jpeg';
+import cNyakondaImg from '@/assets/C Nyakonda.jpeg';
 import rumbi1 from '@/assets/RumbiImages/Rumbi_1.JPEG';
 import rumbi3b from '@/assets/RumbiImages/Rumbi_3b.JPEG';
 import rumbi5 from '@/assets/RumbiImages/Rumbi_5.JPEG';
@@ -49,9 +50,9 @@ const testimonials = [
   {
     id: 4,
     quote: "Thanks to Children's Sanctuary, our children receive the love and support they deserve. They've become part of our family.",
-    name: "Margaret T.",
+    name: "C Nyakond",
     role: "Children's Home Director",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&q=80"
+    image: cNyakondaImg
   },
   {
     id: 5,

@@ -2,10 +2,6 @@ import { createContext, useContext, useState, useRef, useCallback, ReactNode } f
 import aneNyashaCover from '@/assets/ane_nyasha.jpeg';
 import inTheStormCover from '@/assets/in_the_storm.jpeg';
 import zvodaIsheCover from '@/assets/zvoda_ishe.jpeg';
-import hondoCover from '@/assets/hondo.jpeg';
-import albumCover from '@/assets/album1.jpeg';
-import bannerMusicCover from '@/assets/banner_Music.jpg';
-import yourNameCover from '@/assets/your_name.jpeg';
 
 import aneNyashaMp3 from '@/music/Zvoda_Ishe/AneNyasha-2.mp3';
 import anerudoMp3 from '@/music/Zvoda_Ishe/ANERUDO.mp3';
@@ -134,7 +130,7 @@ export const tracks: Track[] = [
     album: 'Zvoda Ishe',
     duration: '3:50',
     src: anerudoMp3,
-    cover: albumCover,
+    cover: zvodaIsheCover,
   },
   {
     id: 'zvoda-3',
@@ -143,7 +139,7 @@ export const tracks: Track[] = [
     album: 'Zvoda Ishe',
     duration: '4:05',
     src: babaMakanakaMp3,
-    cover: albumCover,
+    cover: zvodaIsheCover,
   },
   {
     id: 'zvoda-4',
@@ -152,7 +148,7 @@ export const tracks: Track[] = [
     album: 'Zvoda Ishe',
     duration: '4:18',
     src: hondoMp3,
-    cover: hondoCover,
+    cover: zvodaIsheCover,
   },
   {
     id: 'zvoda-5',
@@ -170,7 +166,7 @@ export const tracks: Track[] = [
     album: 'Zvoda Ishe',
     duration: '4:20',
     src: jesuAripanoMp3,
-    cover: bannerMusicCover,
+    cover: zvodaIsheCover,
   },
   {
     id: 'zvoda-7',
@@ -179,7 +175,7 @@ export const tracks: Track[] = [
     album: 'Zvoda Ishe',
     duration: '4:12',
     src: ndinotendaBabaMp3,
-    cover: yourNameCover,
+    cover: zvodaIsheCover,
   },
   {
     id: 'zvoda-8',
