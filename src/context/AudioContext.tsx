@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useRef, useCallback, ReactNode } from 'react';
 import aneNyashaCover from '@/assets/ane_nyasha.jpeg';
+import ndokumbirawoNyashaCover from '@/assets/Ndokumbirawo Nyasha.jpeg';
 import inTheStormCover from '@/assets/in_the_storm.jpeg';
 import zvodaIsheCover from '@/assets/zvoda_ishe.jpeg';
 
@@ -9,14 +10,19 @@ import babaMakanakaMp3 from '@/music/Zvoda_Ishe/BABA MAKANAKA.mp3';
 import hondoMp3 from '@/music/Zvoda_Ishe/HONDO.mp3';
 import inTheStormMp3 from '@/music/Zvoda_Ishe/In THE STORM.mp3';
 import jesuAripanoMp3 from '@/music/Zvoda_Ishe/JESU ARIPANO.mp3';
-import ndinotendaBabaMp3 from '@/music/Zvoda_Ishe/NDINOTENDA BABA.mp3';
+import ndinotendaBabaMpeg from '@/music/Zvoda_Ishe/NDINOTENDA BABA.mpeg?url';
 import tiriKukumbiraNyashaMp3 from '@/music/Zvoda_Ishe/TIRIKUKUMBIRA NYASHA.mp3';
+import vaneRudoMpeg from '@/music/Zvoda_Ishe/VANE RUDO.mpeg?url';
+import zitaRenyuMpeg from '@/music/Zvoda_Ishe/ZITA RENYU.mpeg?url';
+import zvodaIsheMpeg from '@/music/Zvoda_Ishe/ZVODA ISHE.mpeg?url';
+import zvoseZvanguMpeg from '@/music/Zvoda_Ishe/ZVOSE ZVANGU.mpeg?url';
 
 interface Track {
   id: string;
   title: string;
   artist: string;
   album: string;
+  releaseType?: 'album' | 'single';
   duration: string;
   src: string;
   cover: string;
@@ -117,7 +123,8 @@ export const tracks: Track[] = [
     id: 'zvoda-1',
     title: 'Ane Nyasha',
     artist: 'Zvoda Ishe',
-    album: 'Zvoda Ishe',
+    album: 'Ane Nyasha',
+    releaseType: 'single',
     duration: '4:32',
     src: aneNyashaMp3,
     cover: aneNyashaCover,
@@ -137,7 +144,7 @@ export const tracks: Track[] = [
     title: 'Baba Makanaka',
     artist: 'Zvoda Ishe',
     album: 'Zvoda Ishe',
-    duration: '4:05',
+    duration: '4:36',
     src: babaMakanakaMp3,
     cover: zvodaIsheCover,
   },
@@ -146,7 +153,7 @@ export const tracks: Track[] = [
     title: 'Hondo',
     artist: 'Zvoda Ishe',
     album: 'Zvoda Ishe',
-    duration: '4:18',
+    duration: '5:25',
     src: hondoMp3,
     cover: zvodaIsheCover,
   },
@@ -154,7 +161,8 @@ export const tracks: Track[] = [
     id: 'zvoda-5',
     title: 'In The Storm',
     artist: 'Zvoda Ishe',
-    album: 'Zvoda Ishe',
+    album: 'In The Storm',
+    releaseType: 'single',
     duration: '5:10',
     src: inTheStormMp3,
     cover: inTheStormCover,
@@ -164,7 +172,7 @@ export const tracks: Track[] = [
     title: 'Jesu Aripano',
     artist: 'Zvoda Ishe',
     album: 'Zvoda Ishe',
-    duration: '4:20',
+    duration: '6:34',
     src: jesuAripanoMp3,
     cover: zvodaIsheCover,
   },
@@ -173,17 +181,53 @@ export const tracks: Track[] = [
     title: 'Ndinotenda Baba',
     artist: 'Zvoda Ishe',
     album: 'Zvoda Ishe',
-    duration: '4:12',
-    src: ndinotendaBabaMp3,
+    duration: '5:05',
+    src: ndinotendaBabaMpeg,
     cover: zvodaIsheCover,
   },
   {
     id: 'zvoda-8',
-    title: 'Tirikukumbira Nyasha',
+    title: 'Ndokumbirawo Nyasha',
     artist: 'Zvoda Ishe',
     album: 'Zvoda Ishe',
     duration: '5:05',
     src: tiriKukumbiraNyashaMp3,
+    cover: ndokumbirawoNyashaCover,
+  },
+  {
+    id: 'zvoda-9',
+    title: 'Vane Rudo',
+    artist: 'Zvoda Ishe',
+    album: 'Zvoda Ishe',
+    duration: '4:45',
+    src: vaneRudoMpeg,
+    cover: zvodaIsheCover,
+  },
+  {
+    id: 'zvoda-10',
+    title: 'Zita Renyu',
+    artist: 'Zvoda Ishe',
+    album: 'Zvoda Ishe',
+    duration: '6:11',
+    src: zitaRenyuMpeg,
+    cover: zvodaIsheCover,
+  },
+  {
+    id: 'zvoda-11',
+    title: 'Zvoda Ishe',
+    artist: 'Zvoda Ishe',
+    album: 'Zvoda Ishe',
+    duration: '5:45',
+    src: zvodaIsheMpeg,
+    cover: zvodaIsheCover,
+  },
+  {
+    id: 'zvoda-12',
+    title: 'Zvose Zvangu',
+    artist: 'Zvoda Ishe',
+    album: 'Zvoda Ishe',
+    duration: '5:24',
+    src: zvoseZvanguMpeg,
     cover: zvodaIsheCover,
   },
 ];

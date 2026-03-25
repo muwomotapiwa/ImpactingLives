@@ -200,7 +200,27 @@ export function MinistryDetailPage() {
   const featuredTrack = tracks.find(t => t.isLatest) || tracks[0];
   const isFeaturedPlaying = currentTrack?.id === featuredTrack.id && isPlaying;
   const moreTracks = tracks.filter(t => !t.isLatest);
-  const displayedTracks = isMusic ? moreTracks : moreTracks.slice(0, 3);
+  const priorityTrackOrder = [
+    'zvoda-6',
+    'zvoda-7',
+    'zvoda-11',
+    'zvoda-10',
+    'zvoda-4',
+    'zvoda-9',
+    'zvoda-12',
+    'zvoda-3',
+  ];
+  const orderedTracks = [
+    ...priorityTrackOrder
+      .map((id) => moreTracks.find((track) => track.id === id))
+      .filter((track): track is (typeof tracks)[number] => Boolean(track)),
+    ...moreTracks.filter((track) => !priorityTrackOrder.includes(track.id)),
+  ];
+  const displayedTracks = isMusic ? orderedTracks : orderedTracks.slice(0, 3);
+  const featuredTrackMeta =
+    featuredTrack.releaseType === 'single'
+      ? 'Single release'
+      : `From the album "${featuredTrack.album}"`;
 
   return (
     <div>
@@ -305,7 +325,7 @@ export function MinistryDetailPage() {
                     </button>
                     <div className="flex-1">
                       <h4 className="text-xl font-semibold mb-2">{featuredTrack.title}</h4>
-                      <p className="text-white/70">From the album "{featuredTrack.album}"</p>
+                      <p className="text-white/70">{featuredTrackMeta}</p>
                       {isFeaturedPlaying && (
                         <div className="flex items-end gap-1 h-6 mt-3">
                           {[...Array(8)].map((_, i) => (

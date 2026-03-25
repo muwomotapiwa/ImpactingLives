@@ -16,7 +16,7 @@ import {
   Headphones
 } from 'lucide-react';
 import { useAudio, tracks } from '../context/AudioContext';
-import ourStoryImg from '@/assets/Our_Story.jpeg';
+import tenYearsOfMinistryImg from '@/assets/10yearsOfMinistry.jpeg';
 import yaliweImg from '@/assets/Yaliwe.jpeg';
 import tSirikaImg from '@/assets/T Sirika.jpeg';
 import sMlamboImg from '@/assets/S Mlambo.jpeg';
@@ -93,7 +93,26 @@ export function HomePage() {
   
   // Separate latest track from others
   const latestTrack = tracks.find(t => t.isLatest);
-  const otherTracks = tracks.filter(t => !t.isLatest).slice(0, 4);
+  const homeTrackOrder = [
+    'zvoda-6',
+    'zvoda-7',
+    'zvoda-11',
+    'zvoda-10',
+    'zvoda-4',
+    'zvoda-9',
+    'zvoda-12',
+    'zvoda-3',
+  ];
+  const otherTracks = homeTrackOrder
+    .map((id) => tracks.find((track) => track.id === id))
+    .filter((track): track is (typeof tracks)[number] => Boolean(track));
+  const latestTrackMeta = latestTrack
+    ? latestTrack.releaseType === 'single'
+      ? `Single release • ${latestTrack.duration}`
+      : `From the album "${latestTrack.album}" • ${latestTrack.duration}`
+    : '';
+  const getTrackSubtitle = (track: (typeof tracks)[number]) =>
+    track.releaseType === 'single' ? track.artist : track.album;
 
   return (
     <div>
@@ -308,9 +327,7 @@ export function HomePage() {
                         {latestTrack.title}
                       </h3>
                       <p className="text-white/70 text-lg mb-1">{latestTrack.artist}</p>
-                      <p className="text-white/50 text-sm mb-8">
-                        From the album "{latestTrack.album}" • {latestTrack.duration}
-                      </p>
+                      <p className="text-white/50 text-sm mb-8">{latestTrackMeta}</p>
                       
                       {/* Play Button */}
                       <button
@@ -366,7 +383,7 @@ export function HomePage() {
                 More Tracks
               </h3>
               
-              <div className="flex-1 flex flex-col justify-between space-y-3">
+              <div className="space-y-3">
                 {otherTracks.map((track, index) => {
                   const isCurrentTrack = currentTrack?.id === track.id;
                   const isThisPlaying = isCurrentTrack && isPlaying;
@@ -406,7 +423,7 @@ export function HomePage() {
                         <h4 className={`font-semibold text-lg truncate ${isThisPlaying ? 'text-gold-400' : 'text-white'}`}>
                           {track.title}
                         </h4>
-                        <p className="text-faith-400 text-sm truncate">{track.album}</p>
+                        <p className="text-faith-400 text-sm truncate">{getTrackSubtitle(track)}</p>
                       </div>
                       
                       {/* Duration / Visualizer */}
@@ -529,7 +546,7 @@ export function HomePage() {
             >
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src={ourStoryImg}
+                  src={tenYearsOfMinistryImg}
                   alt="Community gathering"
                   className="w-full h-[400px] object-cover"
                 />

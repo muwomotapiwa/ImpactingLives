@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Music, Baby, Users, Heart, BookHeart, ArrowRight } from 'lucide-react';
+import liftingSpiritsImg from '@/assets/LiftingSpirits.jpeg';
 
 const ministries = [
   {
@@ -9,7 +10,7 @@ const ministries = [
     title: 'Music Ministry',
     tagline: 'Lifting Spirits Through Song',
     description: 'Sharing the gospel through inspirational music and worship. Our music ministry produces uplifting gospel songs that touch hearts and draw people closer to God.',
-    image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80',
+    image: liftingSpiritsImg,
     color: 'from-gold-400 to-faith-500',
     bgLight: 'bg-gold-50',
     textColor: 'text-gold-700',

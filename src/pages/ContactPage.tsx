@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { 
   Mail, 
   Phone, 
-  MapPin, 
   Send, 
   Facebook, 
   Instagram, 
@@ -12,7 +11,6 @@ import {
   Music2,
   Disc3,
   CheckCircle,
-  Clock,
   MessageCircle
 } from 'lucide-react';
 
@@ -191,27 +189,6 @@ export function ContactPage() {
                   </div>
                 </div>
 
-                <div className="bg-gold-50 rounded-2xl p-6 flex items-start gap-4">
-                  <div className="w-14 h-14 bg-faith-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-7 h-7 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-faith-900 mb-1">Visit Us</h3>
-                    <p className="text-faith-700">Community Center, City Name</p>
-                    <p className="text-faith-500 text-sm mt-1">Sunday services at 10am</p>
-                  </div>
-                </div>
-
-                <div className="bg-faith-50 rounded-2xl p-6 flex items-start gap-4">
-                  <div className="w-14 h-14 bg-gold-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-7 h-7 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-faith-900 mb-1">Office Hours</h3>
-                    <p className="text-gold-600">Monday - Friday: 9:00 AM - 5:00 PM</p>
-                    <p className="text-faith-500 text-sm mt-1">Sunday: After service</p>
-                  </div>
-                </div>
               </div>
 
               {/* Social Links */}
