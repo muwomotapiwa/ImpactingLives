@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Music, Baby, Users, Heart, BookHeart, ArrowRight } from 'lucide-react';
 import liftingSpiritsImg from '@/assets/LiftingSpirits.jpeg';
+import youngHeartsImg from '@/assets/younghearts.jpeg';
+import youthHavenImg from '@/assets/youthhaven.jpeg';
+import womensLiftImg from '@/assets/RumbiImages/Rumbi_15.JPEG';
 
 const ministries = [
   {
@@ -22,7 +25,7 @@ const ministries = [
     title: "Children's Sanctuary",
     tagline: 'Nurturing Young Hearts',
     description: 'Providing love, care, and support to vulnerable children. We coordinate with children\'s homes and donors to ensure every child experiences the warmth of family.',
-    image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80',
+    image: youngHeartsImg,
     color: 'from-gold-300 to-gold-500',
     bgLight: 'bg-gold-50',
     textColor: 'text-gold-700',
@@ -34,7 +37,7 @@ const ministries = [
     title: 'Youth Haven',
     tagline: 'Empowering Tomorrow\'s Leaders',
     description: 'A newly introduced initiative focusing on youth support, mental health awareness, addressing unemployment challenges, and rehabilitation programs.',
-    image: 'https://images.unsplash.com/photo-1529390079861-591de354faf5?w=800&q=80',
+    image: youthHavenImg,
     color: 'from-faith-400 to-faith-600',
     bgLight: 'bg-faith-50',
     textColor: 'text-faith-700',
@@ -46,7 +49,7 @@ const ministries = [
     title: "Women's Lift",
     tagline: 'Strengthening Sisters in Faith',
     description: 'A prayer group and support network providing emotional, spiritual, and financial assistance to women in need. Building community and empowerment.',
-    image: 'https://images.unsplash.com/photo-1609234656388-0ff363383899?w=800&q=80',
+    image: womensLiftImg,
     color: 'from-gold-500 to-faith-600',
     bgLight: 'bg-gold-50',
     textColor: 'text-gold-700',

@@ -7,6 +7,9 @@ import {
 } from 'lucide-react';
 import { useAudio, tracks } from '../context/AudioContext';
 import bannerRumbie from '@/assets/BannerRumbie.jpeg';
+import music1Img from '@/assets/music1.jpeg';
+import music2Img from '@/assets/music2.jpeg';
+import music3Img from '@/assets/music3.jpeg';
 
 const ministriesData: Record<string, {
   icon: React.ComponentType<{ className?: string }>;
@@ -42,9 +45,9 @@ const ministriesData: Record<string, {
         { icon: Star, title: 'Concert Events', desc: 'Special performances and gospel concerts' },
       ],
       gallery: [
-        'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80',
-        'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=600&q=80',
-        'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&q=80',
+        music1Img,
+        music2Img,
+        music3Img,
       ],
       testimonial: {
         quote: 'The music from this ministry has been a constant source of encouragement in my life. Every song speaks directly to my heart.',
