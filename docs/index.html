@@ -4,11 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ImpactingLives - Faith, Hope & Community</title>
+    <script>
+      const isGithubPages =
+        window.location.hostname === "muwomotapiwa.github.io";
+      const docsPath = "/ImpactingLives/docs/";
+
+      if (isGithubPages && window.location.pathname !== docsPath) {
+        window.location.replace(`${docsPath}${window.location.search}${window.location.hash}`);
+      }
+    </script>
+    <noscript>
+      <meta
+        http-equiv="refresh"
+        content="0; url=https://muwomotapiwa.github.io/ImpactingLives/docs/"
+      />
+    </noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/ImpactingLives/assets/index-Uwqv8mMi.js"></script>
-    <link rel="stylesheet" crossorigin href="/ImpactingLives/assets/index-Czybke3q.css">
+    <script type="module" crossorigin src="./assets/index-NZWUB_2l.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Czybke3q.css">
   </head>
   <body>
     <div id="root"></div>
