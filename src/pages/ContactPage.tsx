@@ -124,7 +124,6 @@ export function ContactPage() {
                     >
                       <option value="">Select a topic</option>
                       <option value="volunteer">I want to volunteer</option>
-                      <option value="donate">Make a donation</option>
                       <option value="prayer">Prayer request</option>
                       <option value="partnership">Partnership inquiry</option>
                       <option value="music">Music Ministry inquiry</option>

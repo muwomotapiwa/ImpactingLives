@@ -194,12 +194,6 @@ export function MinistriesPage() {
               >
                 Volunteer With Us
               </Link>
-              <Link
-                to="/contact"
-                className="bg-white/20 hover:bg-white/30 text-white px-8 py-4 rounded-full font-semibold transition-colors"
-              >
-                Make a Donation
-              </Link>
             </div>
           </motion.div>
         </div>

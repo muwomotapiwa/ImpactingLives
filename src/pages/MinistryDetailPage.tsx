@@ -397,30 +397,6 @@ export function MinistryDetailPage() {
                 </motion.div>
               )}
 
-              {/* Gallery */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="font-display text-3xl font-bold text-faith-900 mb-6">
-                  Gallery
-                </h2>
-                <div className="grid grid-cols-3 gap-4">
-                  {ministry.content.gallery.map((image, index) => (
-                    <div
-                      key={index}
-                      className="rounded-xl overflow-hidden aspect-square"
-                    >
-                      <img
-                        src={image}
-                        alt={`${ministry.title} gallery ${index + 1}`}
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
             </div>
 
             {/* Sidebar */}
@@ -472,28 +448,6 @@ export function MinistryDetailPage() {
                 </Link>
               </motion.div>
 
-              {/* Support Card */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="bg-white border-2 border-gold-200 rounded-2xl p-8"
-              >
-                <Heart className="w-12 h-12 text-gold-500 mb-4" />
-                <h3 className="font-display text-xl font-bold text-faith-900 mb-3">
-                  Support This Ministry
-                </h3>
-                <p className="text-faith-600 text-sm mb-6">
-                  Your generous donation helps us continue our work and expand our reach.
-                </p>
-                <Link
-                  to="/contact"
-                  className="block w-full bg-gold-500 hover:bg-gold-600 text-white py-3 rounded-full font-semibold text-center transition-colors"
-                >
-                  Donate Now
-                </Link>
-              </motion.div>
             </div>
           </div>
         </div>

@@ -7,16 +7,6 @@ import prideImg from '@/assets/Pride.jpeg';
 import yaliweImg from '@/assets/Yaliwe.jpeg';
 import sMlamboImg from '@/assets/S Mlambo.jpeg';
 import cNyakondaImg from '@/assets/C Nyakonda.jpeg';
-import rumbi1 from '@/assets/RumbiImages/Rumbi_1.JPEG';
-import rumbi3b from '@/assets/RumbiImages/Rumbi_3b.JPEG';
-import rumbi5 from '@/assets/RumbiImages/Rumbi_5.JPEG';
-import rumbi7 from '@/assets/RumbiImages/Rumbi_7.JPEG';
-import rumbi10 from '@/assets/RumbiImages/Rumbi_10.JPEG';
-import rumbi14 from '@/assets/RumbiImages/Rumbi_14.JPEG';
-import rumbi17 from '@/assets/RumbiImages/Rumbi_17.JPEG';
-import rumbi22 from '@/assets/RumbiImages/Rumbi_22.JPEG';
-import rumbi28 from '@/assets/RumbiImages/Rumbi_28.JPEG';
-import rumbi33 from '@/assets/RumbiImages/Rumbi_33.JPEG';
 
 const impactStats = [
   { icon: Users, number: '500+', label: 'Lives Directly Impacted', color: 'from-gold-400 to-faith-500' },
@@ -68,19 +58,6 @@ const testimonials = [
     role: "Student",
     image: prideImg
   },
-];
-
-const galleryImages = [
-  { url: rumbi1, caption: 'Rumbi - Moment 1' },
-  { url: rumbi3b, caption: 'Rumbi - Moment 2' },
-  { url: rumbi5, caption: 'Rumbi - Moment 3' },
-  { url: rumbi7, caption: 'Rumbi - Moment 4' },
-  { url: rumbi10, caption: 'Rumbi - Moment 5' },
-  { url: rumbi14, caption: 'Rumbi - Moment 6' },
-  { url: rumbi17, caption: 'Rumbi - Moment 7' },
-  { url: rumbi22, caption: 'Rumbi - Moment 8' },
-  { url: rumbi28, caption: 'Rumbi - Moment 9' },
-  { url: rumbi33, caption: 'Rumbi - Moment 10' },
 ];
 
 export function ImpactPage() {
@@ -238,59 +215,10 @@ export function ImpactPage() {
         </div>
       </section>
 
-      {/* Photo Gallery */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="inline-block text-gold-600 font-semibold text-sm tracking-wider uppercase mb-4">
-              Gallery
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-faith-900 mb-6">
-              Rumbi&apos;s <span className="text-gradient">Journey</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {galleryImages.map((image, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className={`relative overflow-hidden rounded-xl group ${
-                  index === 0 || index === 5 ? 'row-span-2' : ''
-                }`}
-              >
-                <img
-                  src={image.url}
-                  alt={image.caption}
-                  className={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${
-                    index === 0 || index === 5 ? 'h-full min-h-[300px]' : 'h-48'
-                  }`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-faith-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="flex items-center gap-2 text-white text-sm">
-                    <Heart className="w-4 h-4 text-gold-400" />
-                    <span>{image.caption}</span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Future Vision */}
       <section className="py-24 bg-faith-900">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-4xl mx-auto px-6">
+          <div>
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -338,45 +266,6 @@ export function ImpactPage() {
                 Partner With Us
                 <ArrowRight className="w-5 h-5" />
               </Link>
-            </motion.div>
-
-            <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-              <div className="bg-gradient-to-br from-gold-500/20 to-faith-500/20 rounded-3xl p-8">
-                <div className="bg-white rounded-2xl p-8 shadow-xl">
-                  <h3 className="font-display text-2xl font-bold text-faith-900 mb-6">
-                    Help Us Grow
-                  </h3>
-                  <p className="text-faith-600 mb-6">
-                    Your support enables us to dream bigger and reach further. 
-                    Together, we can make these visions a reality.
-                  </p>
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between p-4 bg-gold-50 rounded-xl">
-                      <span className="text-faith-700">Children's Home Fund</span>
-                      <span className="font-bold text-gold-600">65% raised</span>
-                    </div>
-                    <div className="flex items-center justify-between p-4 bg-faith-50 rounded-xl">
-                      <span className="text-faith-700">Youth Programs</span>
-                      <span className="font-bold text-faith-600">45% raised</span>
-                    </div>
-                    <div className="flex items-center justify-between p-4 bg-gold-50 rounded-xl">
-                      <span className="text-faith-700">Music Ministry Tour</span>
-                      <span className="font-bold text-gold-600">30% raised</span>
-                    </div>
-                  </div>
-                  <Link
-                    to="/contact"
-                    className="block w-full bg-faith-800 hover:bg-faith-900 text-white py-4 rounded-xl font-semibold text-center mt-6 transition-colors"
-                  >
-                    Make a Donation
-                  </Link>
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
