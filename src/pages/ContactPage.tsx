@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Mail, 
@@ -10,17 +10,58 @@ import {
   Apple,
   Music2,
   Disc3,
-  CheckCircle,
-  MessageCircle
+  CheckCircle
 } from 'lucide-react';
+
+const CONTACT_EMAIL = 'muwomotapiwa@gmail.com';
+
+const subjectLabels: Record<string, string> = {
+  volunteer: 'I want to volunteer',
+  prayer: 'Prayer request',
+  partnership: 'Partnership inquiry',
+  music: 'Music Ministry inquiry',
+  other: 'Other',
+};
 
 export function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setSubmitError(null);
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const selectedSubject = String(formData.get('subject') ?? '');
+    const subjectLabel = subjectLabels[selectedSubject] ?? 'Website contact';
+
+    formData.append('_subject', `Impacting Lives: ${subjectLabel}`);
+    formData.append('_template', 'table');
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('The form service could not accept the message.');
+      }
+
+      setSubmitted(true);
+      form.reset();
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch {
+      setSubmitError('We could not send your message right now. Please email us directly instead.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -86,10 +127,14 @@ export function ContactPage() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
+
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-faith-700 font-medium mb-2">Your Name</label>
+                      <label htmlFor="contact-name" className="block text-faith-700 font-medium mb-2">Your Name</label>
                       <input
+                        id="contact-name"
+                        name="name"
                         type="text"
                         required
                         className="w-full border border-faith-200 rounded-xl px-4 py-3 text-faith-900 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20 transition-all"
@@ -97,8 +142,10 @@ export function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-faith-700 font-medium mb-2">Email Address</label>
+                      <label htmlFor="contact-email" className="block text-faith-700 font-medium mb-2">Email Address</label>
                       <input
+                        id="contact-email"
+                        name="email"
                         type="email"
                         required
                         className="w-full border border-faith-200 rounded-xl px-4 py-3 text-faith-900 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20 transition-all"
@@ -108,8 +155,10 @@ export function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-faith-700 font-medium mb-2">Phone Number (Optional)</label>
+                    <label htmlFor="contact-phone" className="block text-faith-700 font-medium mb-2">Phone Number (Optional)</label>
                     <input
+                      id="contact-phone"
+                      name="phone"
                       type="tel"
                       className="w-full border border-faith-200 rounded-xl px-4 py-3 text-faith-900 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20 transition-all"
                       placeholder="+44 7770 026798"
@@ -117,10 +166,13 @@ export function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-faith-700 font-medium mb-2">Subject</label>
+                    <label htmlFor="contact-subject" className="block text-faith-700 font-medium mb-2">Subject</label>
                     <select
+                      id="contact-subject"
+                      name="subject"
                       required
                       className="w-full border border-faith-200 rounded-xl px-4 py-3 text-faith-900 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20 transition-all"
+                      defaultValue=""
                     >
                       <option value="">Select a topic</option>
                       <option value="volunteer">I want to volunteer</option>
@@ -132,8 +184,10 @@ export function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-faith-700 font-medium mb-2">Your Message</label>
+                    <label htmlFor="contact-message" className="block text-faith-700 font-medium mb-2">Your Message</label>
                     <textarea
+                      id="contact-message"
+                      name="message"
                       required
                       rows={5}
                       className="w-full border border-faith-200 rounded-xl px-4 py-3 text-faith-900 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20 transition-all resize-none"
@@ -141,12 +195,19 @@ export function ContactPage() {
                     />
                   </div>
 
+                  {submitError ? (
+                    <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                      {submitError}
+                    </div>
+                  ) : null}
+
                   <button
                     type="submit"
-                    className="w-full bg-gold-500 hover:bg-gold-600 text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg shadow-gold-500/30 transition-all"
+                    disabled={isSubmitting}
+                    className="w-full bg-gold-500 hover:bg-gold-600 disabled:bg-gold-400 disabled:cursor-not-allowed text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg shadow-gold-500/30 transition-all"
                   >
                     <Send className="w-5 h-5" />
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               )}
@@ -168,8 +229,8 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-faith-900 mb-1">Email Us</h3>
-                    <a href="mailto:rue.impactinglives@gmail.com" className="text-gold-600 hover:text-gold-700 transition-colors">
-                      rue.impactinglives@gmail.com
+                    <a href={`mailto:${CONTACT_EMAIL}`} className="text-gold-600 hover:text-gold-700 transition-colors">
+                      {CONTACT_EMAIL}
                     </a>
                     <p className="text-faith-500 text-sm mt-1">We respond within 24 hours</p>
                   </div>
