@@ -25,6 +25,12 @@ const ministriesData: Record<string, {
     features: { icon: React.ComponentType<{ className?: string }>; title: string; desc: string }[];
     gallery: string[];
     testimonial?: { quote: string; name: string; role: string };
+    featuredVideo?: {
+      title: string;
+      description: string;
+      embedUrl: string;
+      watchUrl: string;
+    };
   };
 }> = {
   music: {
@@ -154,6 +160,12 @@ const ministriesData: Record<string, {
     textColor: 'text-faith-700',
     content: {
       overview: 'Faith Moments provides daily spiritual nourishment through teachings, reflections, and motivational content rooted in Christian values. We share encouragement through various platforms, helping believers grow in their faith and find strength for life\'s journey.',
+      featuredVideo: {
+        title: 'Rumbie Kachembere | Worry Not | Have faith in God',
+        description: 'A featured sermon message encouraging believers to release worry, trust God fully, and stand firm in faith through every season.',
+        embedUrl: 'https://www.youtube.com/embed/7VDkTZy2JGs',
+        watchUrl: 'https://www.youtube.com/watch?v=7VDkTZy2JGs',
+      },
       features: [
         { icon: BookOpen, title: 'Daily Devotions', desc: 'Regular spiritual content and reflections' },
         { icon: MessageCircle, title: 'Teachings', desc: 'Bible-based messages and lessons' },
@@ -284,6 +296,53 @@ export function MinistryDetailPage() {
                   {ministry.content.overview}
                 </p>
               </motion.div>
+
+              {ministry.content.featuredVideo && (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="mb-12 overflow-hidden rounded-3xl bg-gradient-to-br from-faith-900 via-faith-800 to-faith-700 p-6 md:p-8 text-white shadow-2xl"
+                >
+                  <div className="grid gap-8 xl:grid-cols-[0.9fr,1.1fr] xl:items-center">
+                    <div>
+                      <span className="inline-flex items-center gap-2 rounded-full bg-gold-500/20 px-4 py-2 text-sm font-semibold uppercase tracking-wider text-gold-300">
+                        <Play className="w-4 h-4" />
+                        Featured Sermon
+                      </span>
+                      <h3 className="mt-5 font-display text-3xl font-bold leading-tight">
+                        {ministry.content.featuredVideo.title}
+                      </h3>
+                      <p className="mt-4 text-base leading-relaxed text-faith-200">
+                        {ministry.content.featuredVideo.description}
+                      </p>
+                      <a
+                        href={ministry.content.featuredVideo.watchUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-6 inline-flex items-center gap-2 rounded-full bg-gold-500 px-6 py-3 font-semibold text-white transition-colors hover:bg-gold-600"
+                      >
+                        <Play className="w-4 h-4" />
+                        Watch on YouTube
+                      </a>
+                    </div>
+
+                    <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/30 shadow-2xl">
+                      <div className="aspect-video">
+                        <iframe
+                          className="h-full w-full"
+                          src={ministry.content.featuredVideo.embedUrl}
+                          title={ministry.content.featuredVideo.title}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allowFullScreen
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
 
               {/* Features */}
               <motion.div
