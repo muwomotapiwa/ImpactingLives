@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useRef, useCallback, ReactNode } f
 import aneNyashaCover from '@/assets/ane_nyasha.jpeg';
 import ndokumbirawoNyashaCover from '@/assets/Ndokumbirawo Nyasha.jpeg';
 import inTheStormCover from '@/assets/in_the_storm.jpeg';
+import yourNameCover from '@/assets/your_name.jpeg';
 import zvodaIsheCover from '@/assets/zvoda_ishe.jpeg';
 
 import aneNyashaMp3 from '@/music/Zvoda_Ishe/AneNyasha-2.mp3';
@@ -12,6 +13,7 @@ import inTheStormMp3 from '@/music/Zvoda_Ishe/In THE STORM.mp3';
 import jesuAripanoMp3 from '@/music/Zvoda_Ishe/JESU ARIPANO.mp3';
 import ndinotendaBabaMpeg from '@/music/Zvoda_Ishe/NDINOTENDA BABA.mpeg?url';
 import tiriKukumbiraNyashaMp3 from '@/music/Zvoda_Ishe/TIRIKUKUMBIRA NYASHA.mp3';
+import yourNameMpeg from '@/music/Your Name.mpeg?url';
 import vaneRudoMpeg from '@/music/Zvoda_Ishe/VANE RUDO.mpeg?url';
 import zitaRenyuMpeg from '@/music/Zvoda_Ishe/ZITA RENYU.mpeg?url';
 import zvodaIsheMpeg from '@/music/Zvoda_Ishe/ZVODA ISHE.mpeg?url';
@@ -229,5 +231,15 @@ export const tracks: Track[] = [
     duration: '5:24',
     src: zvoseZvanguMpeg,
     cover: zvodaIsheCover,
+  },
+  {
+    id: 'zvoda-13',
+    title: 'Your Name',
+    artist: 'Zvoda Ishe',
+    album: 'Your Name',
+    releaseType: 'single',
+    duration: '6:00',
+    src: yourNameMpeg,
+    cover: yourNameCover,
   },
 ];

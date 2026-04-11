@@ -102,6 +102,7 @@ export function HomePage() {
     'zvoda-9',
     'zvoda-12',
     'zvoda-3',
+    'zvoda-13',
   ];
   const otherTracks = homeTrackOrder
     .map((id) => tracks.find((track) => track.id === id))
