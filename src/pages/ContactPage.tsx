@@ -13,7 +13,7 @@ import {
   CheckCircle
 } from 'lucide-react';
 
-const CONTACT_EMAIL = 'muwomotapiwa@gmail.com';
+const CONTACT_EMAIL = 'rue.impactinglives@gmail.com';
 
 const subjectLabels: Record<string, string> = {
   volunteer: 'I want to volunteer',
