@@ -1,7 +1,10 @@
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { 
+  CalendarDays,
   ChevronRight, 
+  Clock,
   Play, 
   Pause,
   Sparkles, 
@@ -13,13 +16,16 @@ import {
   Quote,
   ArrowRight,
   Disc3,
-  Headphones
+  Headphones,
+  Radio,
+  Send
 } from 'lucide-react';
 import { useAudio, tracks } from '../context/AudioContext';
 import tenYearsOfMinistryImg from '@/assets/10yearsOfMinistry.jpeg';
 import yaliweImg from '@/assets/Yaliwe.jpeg';
 import tSirikaImg from '@/assets/T Sirika.jpeg';
 import sMlamboImg from '@/assets/S Mlambo.jpeg';
+import epLaunchImg from '@/assets/EP_Launch_2026.jpeg';
 
 const ministries = [
   {
@@ -88,29 +94,89 @@ const testimonials = [
   },
 ];
 
+const epLaunchHighlights = [
+  {
+    icon: CalendarDays,
+    label: 'WhatsApp Launch',
+    value: '8 May 2026',
+  },
+  {
+    icon: Clock,
+    label: 'Premiere Time',
+    value: 'UK 7PM / ZIM 8PM',
+  },
+  {
+    icon: Radio,
+    label: 'Produced By',
+    value: 'Lyngo Beats',
+  },
+];
+
+const epLaunchSchedule = [
+  {
+    title: 'Hukuru Hwenyu',
+    feature: 'ft PMP Choir',
+    date: '8 May 2026',
+  },
+  {
+    title: 'Hondo Remix',
+    feature: 'ft Caroline Muzambi',
+    date: '15 May 2026',
+  },
+  {
+    title: 'Zvoda Ishe Remix',
+    feature: 'ft Bethen Pasinawako Ngolomi',
+    date: '22 May 2026',
+  },
+];
+
 export function HomePage() {
   const { currentTrack, isPlaying, playTrack } = useAudio();
+  const epLaunchRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const { scrollYProgress: epScrollProgress } = useScroll({
+    target: epLaunchRef,
+    offset: ['start end', 'end start'],
+  });
+  const epPosterRotateX = useTransform(
+    epScrollProgress,
+    [0, 0.48, 1],
+    prefersReducedMotion ? [0, 0, 0] : [14, 0, -8]
+  );
+  const epPosterRotateY = useTransform(
+    epScrollProgress,
+    [0, 0.5, 1],
+    prefersReducedMotion ? [0, 0, 0] : [-9, 0, 8]
+  );
+  const epPosterLift = useTransform(
+    epScrollProgress,
+    [0, 0.5, 1],
+    prefersReducedMotion ? [0, 0, 0] : [36, -10, -36]
+  );
+  const epPosterScale = useTransform(epScrollProgress, [0, 0.45, 1], [0.94, 1, 0.98]);
+  const epCopyLift = useTransform(
+    epScrollProgress,
+    [0, 0.5, 1],
+    prefersReducedMotion ? [0, 0, 0] : [22, 0, -18]
+  );
   
-  // Separate latest track from others
-  const latestTrack = tracks.find(t => t.isLatest);
   const homeTrackOrder = [
-    'zvoda-6',
-    'zvoda-7',
-    'zvoda-11',
-    'zvoda-10',
-    'zvoda-4',
-    'zvoda-9',
-    'zvoda-12',
-    'zvoda-3',
+    'ep-2026-hukuru-hwenyu',
+    'ep-2026-zvoda-ishe-remix',
+    'ep-2026-hondo-remix',
+    'zvoda-5',
+    'zvoda-1',
     'zvoda-13',
   ];
-  const otherTracks = homeTrackOrder
+  const homeMusicTracks = homeTrackOrder
     .map((id) => tracks.find((track) => track.id === id))
     .filter((track): track is (typeof tracks)[number] => Boolean(track));
-  const latestTrackMeta = latestTrack
-    ? latestTrack.releaseType === 'single'
-      ? `Single release • ${latestTrack.duration}`
-      : `From the album "${latestTrack.album}" • ${latestTrack.duration}`
+  const homeFeaturedTrack = homeMusicTracks[0];
+  const otherTracks = homeMusicTracks.slice(1);
+  const homeFeaturedTrackMeta = homeFeaturedTrack
+    ? homeFeaturedTrack.releaseType === 'single'
+      ? `Single release • ${homeFeaturedTrack.duration}`
+      : `From the album "${homeFeaturedTrack.album}" • ${homeFeaturedTrack.duration}`
     : '';
   const getTrackSubtitle = (track: (typeof tracks)[number]) =>
     track.releaseType === 'single' ? track.artist : track.album;
@@ -249,6 +315,133 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* EP Launch Section */}
+      <section
+        ref={epLaunchRef}
+        className="relative overflow-hidden bg-gradient-to-b from-faith-900 via-faith-950 to-faith-900 py-20 sm:py-24 lg:py-28"
+      >
+        <div className="absolute inset-0 bg-pattern opacity-10" />
+        <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(214,27,132,0.18),transparent_36%,rgba(14,141,150,0.16)_64%,transparent)]" />
+        <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/60 to-transparent" />
+        <div className="absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold-500/40 to-transparent" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div className="[perspective:1500px]">
+              <motion.div
+                style={{
+                  rotateX: epPosterRotateX,
+                  rotateY: epPosterRotateY,
+                  y: epPosterLift,
+                  scale: epPosterScale,
+                }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+                className="relative mx-auto max-w-[560px] transform-gpu"
+              >
+                <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-gold-500/35 via-cyan-400/20 to-faith-700/40 blur-xl" />
+                <div className="relative overflow-hidden rounded-[1.75rem] border border-white/20 bg-white/10 p-2 shadow-2xl shadow-gold-950/50 backdrop-blur">
+                  <img
+                    src={epLaunchImg}
+                    alt="EP Launch 2026 announcement for Rumbi Kachembere Muganyura"
+                    className="aspect-square w-full rounded-[1.25rem] object-cover"
+                  />
+                </div>
+                <motion.div
+                  aria-hidden="true"
+                  className="absolute -right-5 top-10 hidden h-24 w-24 rounded-full border border-white/25 bg-faith-950/70 shadow-xl shadow-faith-950/40 md:flex items-center justify-center"
+                  animate={prefersReducedMotion ? undefined : { rotate: 360 }}
+                  transition={{ duration: 16, repeat: Infinity, ease: 'linear' }}
+                >
+                  <Disc3 className="h-12 w-12 text-gold-300" />
+                </motion.div>
+              </motion.div>
+            </div>
+
+            <motion.div
+              style={{ y: epCopyLift }}
+              initial={{ opacity: 0, y: 36 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+            >
+              <span className="inline-flex items-center gap-2 text-gold-300 font-semibold text-sm tracking-wider uppercase mb-4">
+                <Sparkles className="w-4 h-4" />
+                EP Announcement
+              </span>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
+                EP Launch <span className="text-gradient">2026</span>
+              </h2>
+              <p className="text-faith-200 text-lg leading-relaxed max-w-2xl mb-8">
+                Gospel Time is here. Join Rumbi Kachembere Muganyura for a three-part EP rollout
+                filled with worship, powerful collaborations, and music crafted to lift hearts.
+              </p>
+
+              <div className="grid gap-3 sm:grid-cols-3 mb-8">
+                {epLaunchHighlights.map((item, index) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.15 + index * 0.08 }}
+                    className="rounded-2xl border border-white/10 bg-white/[0.07] p-4 backdrop-blur"
+                  >
+                    <item.icon className="mb-3 h-5 w-5 text-gold-300" />
+                    <div className="text-xs font-semibold uppercase tracking-wider text-faith-300">
+                      {item.label}
+                    </div>
+                    <div className="mt-1 text-sm font-bold text-white">{item.value}</div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="space-y-3">
+                {epLaunchSchedule.map((release, index) => (
+                  <motion.div
+                    key={release.title}
+                    initial={{ opacity: 0, x: 24 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + index * 0.1 }}
+                    whileHover={prefersReducedMotion ? undefined : { y: -4, rotateX: 2, rotateY: -2 }}
+                    className="grid gap-3 rounded-2xl border border-white/10 bg-gradient-to-r from-white/[0.09] to-white/[0.04] p-4 shadow-lg shadow-faith-950/20 backdrop-blur sm:grid-cols-[1fr_auto] sm:items-center"
+                  >
+                    <div className="min-w-0">
+                      <h3 className="font-display text-xl font-bold text-white">{release.title}</h3>
+                      <p className="text-sm text-faith-300">{release.feature}</p>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 text-sm font-semibold text-gold-200">
+                      <CalendarDays className="h-4 w-4" />
+                      <span>{release.date}</span>
+                      <span className="text-faith-400">/</span>
+                      <span>UK 7PM</span>
+                      <span>ZIM 8PM</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  to="/ministries/music"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gold-500 px-7 py-3 font-bold text-white shadow-xl shadow-gold-500/25 transition-colors hover:bg-gold-600"
+                >
+                  <Music className="h-5 w-5" />
+                  Explore the Music
+                </Link>
+                <div className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-7 py-3 font-semibold text-faith-100">
+                  <Send className="h-5 w-5 text-gold-300" />
+                  WhatsApp Launch 8 May
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Music Section */}
       <section className="py-24 bg-gradient-to-b from-faith-900 via-faith-800 to-faith-900 relative overflow-hidden">
         {/* Background decorations */}
@@ -278,8 +471,8 @@ export function HomePage() {
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8 items-stretch">
-            {/* Latest Release - Featured Track */}
-            {latestTrack && (
+            {/* Featured Release */}
+            {homeFeaturedTrack && (
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -288,7 +481,7 @@ export function HomePage() {
                 className="relative h-full"
               >
                 <div className="absolute -top-3 -left-3 bg-gold-500 text-white text-xs font-bold px-4 py-1.5 rounded-full z-10 shadow-lg">
-                  ✨ Latest Release
+                  ✨ Featured Release
                 </div>
                 
                 <div className="bg-gradient-to-br from-gold-500 via-faith-600 to-faith-700 rounded-3xl p-8 lg:p-10 shadow-2xl relative overflow-hidden h-full flex flex-col justify-center">
@@ -303,15 +496,15 @@ export function HomePage() {
                       <div className="relative group">
                         <div className="w-56 h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/20">
                           <img
-                            src={latestTrack.cover}
-                            alt={latestTrack.title}
+                            src={homeFeaturedTrack.cover}
+                            alt={homeFeaturedTrack.title}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                           />
                         </div>
                         {/* Spinning vinyl effect */}
                         <motion.div
                           className={`absolute -right-6 -bottom-6 w-24 h-24 bg-gray-900 rounded-full flex items-center justify-center shadow-xl ${
-                            currentTrack?.id === latestTrack.id && isPlaying ? 'animate-spin' : ''
+                            currentTrack?.id === homeFeaturedTrack.id && isPlaying ? 'animate-spin' : ''
                           }`}
                           style={{ animationDuration: '3s' }}
                         >
@@ -325,17 +518,17 @@ export function HomePage() {
                     {/* Track Info - Centered below */}
                     <div className="text-center">
                       <h3 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">
-                        {latestTrack.title}
+                        {homeFeaturedTrack.title}
                       </h3>
-                      <p className="text-white/70 text-lg mb-1">{latestTrack.artist}</p>
-                      <p className="text-white/50 text-sm mb-8">{latestTrackMeta}</p>
+                      <p className="text-white/70 text-lg mb-1">{homeFeaturedTrack.artist}</p>
+                      <p className="text-white/50 text-sm mb-8">{homeFeaturedTrackMeta}</p>
                       
                       {/* Play Button */}
                       <button
-                        onClick={() => playTrack(latestTrack)}
+                        onClick={() => playTrack(homeFeaturedTrack)}
                         className="inline-flex items-center gap-3 bg-white hover:bg-faith-50 text-gold-600 px-10 py-4 rounded-full font-bold shadow-lg transition-all group text-lg"
                       >
-                        {currentTrack?.id === latestTrack.id && isPlaying ? (
+                        {currentTrack?.id === homeFeaturedTrack.id && isPlaying ? (
                           <>
                             <Pause className="w-6 h-6" />
                             Pause
@@ -349,7 +542,7 @@ export function HomePage() {
                       </button>
                       
                       {/* Visualizer */}
-                      {currentTrack?.id === latestTrack.id && isPlaying && (
+                      {currentTrack?.id === homeFeaturedTrack.id && isPlaying && (
                         <div className="flex items-end justify-center gap-1 h-10 mt-8">
                           {[...Array(16)].map((_, i) => (
                             <motion.div

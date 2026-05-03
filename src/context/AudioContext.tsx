@@ -4,11 +4,16 @@ import ndokumbirawoNyashaCover from '@/assets/Ndokumbirawo Nyasha.jpeg';
 import inTheStormCover from '@/assets/in_the_storm.jpeg';
 import yourNameCover from '@/assets/your_name.jpeg';
 import zvodaIsheCover from '@/assets/zvoda_ishe.jpeg';
+import hondoRemixCover from '@/assets/hondo_remix.jpeg';
+import hukuruHwenyuRemixCover from '@/assets/hukuru_hwenyu_remix.jpeg';
+import zvodaIsheRemixCover from '@/assets/zvoda_ishe_remix.jpeg';
 
 import aneNyashaMp3 from '@/music/Zvoda_Ishe/AneNyasha-2.mp3';
 import anerudoMp3 from '@/music/Zvoda_Ishe/ANERUDO.mp3';
 import babaMakanakaMp3 from '@/music/Zvoda_Ishe/BABA MAKANAKA.mp3';
+import hondoRemixMpeg from '@/music/Hondo Remix.mp3.mpeg?url';
 import hondoMp3 from '@/music/Zvoda_Ishe/HONDO.mp3';
+import hukuruHwenyuMpeg from '@/music/Hukuru Hwenyu.mp3.mpeg?url';
 import inTheStormMp3 from '@/music/Zvoda_Ishe/In THE STORM.mp3';
 import jesuAripanoMp3 from '@/music/Zvoda_Ishe/JESU ARIPANO.mp3';
 import ndinotendaBabaMpeg from '@/music/Zvoda_Ishe/NDINOTENDA BABA.mpeg?url';
@@ -17,6 +22,7 @@ import yourNameMpeg from '@/music/Your Name.mpeg?url';
 import vaneRudoMpeg from '@/music/Zvoda_Ishe/VANE RUDO.mpeg?url';
 import zitaRenyuMpeg from '@/music/Zvoda_Ishe/ZITA RENYU.mpeg?url';
 import zvodaIsheMpeg from '@/music/Zvoda_Ishe/ZVODA ISHE.mpeg?url';
+import zvodaIsheRemixMpeg from '@/music/Zvoda Ishe (remix).mp3.mpeg?url';
 import zvoseZvanguMpeg from '@/music/Zvoda_Ishe/ZVOSE ZVANGU.mpeg?url';
 
 interface Track {
@@ -140,6 +146,36 @@ export const tracks: Track[] = [
     duration: '3:50',
     src: anerudoMp3,
     cover: zvodaIsheCover,
+  },
+  {
+    id: 'ep-2026-hukuru-hwenyu',
+    title: 'Hukuru Hwenyu',
+    artist: 'Rumbi Kachembere Muganyura ft PMP Choir',
+    album: 'EP Launch 2026',
+    releaseType: 'single',
+    duration: '3:50',
+    src: hukuruHwenyuMpeg,
+    cover: hukuruHwenyuRemixCover,
+  },
+  {
+    id: 'ep-2026-hondo-remix',
+    title: 'Hondo Remix',
+    artist: 'Rumbi Kachembere Muganyura ft Caroline Muzambi',
+    album: 'EP Launch 2026',
+    releaseType: 'single',
+    duration: '5:47',
+    src: hondoRemixMpeg,
+    cover: hondoRemixCover,
+  },
+  {
+    id: 'ep-2026-zvoda-ishe-remix',
+    title: 'Zvoda Ishe Remix',
+    artist: 'Rumbi Kachembere Muganyura ft Bethen Pasinawako Ngolomi',
+    album: 'EP Launch 2026',
+    releaseType: 'single',
+    duration: '5:43',
+    src: zvodaIsheRemixMpeg,
+    cover: zvodaIsheRemixCover,
   },
   {
     id: 'zvoda-3',

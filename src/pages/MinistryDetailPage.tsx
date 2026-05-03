@@ -216,6 +216,9 @@ export function MinistryDetailPage() {
   const isFeaturedPlaying = currentTrack?.id === featuredTrack.id && isPlaying;
   const moreTracks = tracks.filter(t => !t.isLatest);
   const priorityTrackOrder = [
+    'ep-2026-hukuru-hwenyu',
+    'ep-2026-hondo-remix',
+    'ep-2026-zvoda-ishe-remix',
     'zvoda-6',
     'zvoda-7',
     'zvoda-11',
