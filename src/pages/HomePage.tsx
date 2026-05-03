@@ -449,34 +449,34 @@ export function HomePage() {
       </section>
 
       {/* Music Section */}
-      <section className="py-24 bg-gradient-to-b from-faith-900 via-faith-800 to-faith-900 relative overflow-hidden">
+      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-faith-900 via-faith-800 to-faith-900 relative overflow-hidden">
         {/* Background decorations */}
         <div className="absolute inset-0 bg-pattern opacity-5" />
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-faith-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl" />
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-14 lg:mb-16"
           >
             <span className="inline-flex items-center gap-2 text-gold-400 font-semibold text-sm tracking-wider uppercase mb-4">
               <Headphones className="w-4 h-4" />
               Music Ministry
             </span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
               Listen to Our <span className="text-gradient">Music</span>
             </h2>
-            <p className="text-faith-300 text-lg max-w-2xl mx-auto">
+            <p className="text-faith-300 text-base sm:text-lg max-w-2xl mx-auto">
               Experience the power of worship through our gospel music. Each song is 
               crafted to uplift spirits and draw hearts closer to God.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
             {/* Featured Release */}
             {homeFeaturedTrack && (
               <motion.div
@@ -484,13 +484,13 @@ export function HomePage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative h-full"
+                className="relative h-full min-w-0"
               >
-                <div className="absolute -top-3 -left-3 bg-gold-500 text-white text-xs font-bold px-4 py-1.5 rounded-full z-10 shadow-lg">
-                  ✨ Featured Release
+                <div className="absolute left-4 top-0 -translate-y-1/2 bg-gold-500 text-white text-[11px] sm:text-xs font-bold px-3 sm:px-4 py-1.5 rounded-full z-10 shadow-lg">
+                  Featured Release
                 </div>
                 
-                <div className="bg-gradient-to-br from-gold-500 via-faith-600 to-faith-700 rounded-3xl p-8 lg:p-10 shadow-2xl relative overflow-hidden h-full flex flex-col justify-center">
+                <div className="bg-gradient-to-br from-gold-500 via-faith-600 to-faith-700 rounded-[1.25rem] sm:rounded-3xl p-5 pt-8 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden h-full flex flex-col justify-center min-w-0">
                   {/* Decorative elements */}
                   <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
                   <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
@@ -498,9 +498,9 @@ export function HomePage() {
                   
                   <div className="relative z-10">
                     {/* Large Album Cover - Centered on top */}
-                    <div className="flex justify-center mb-8">
-                      <div className="relative group">
-                        <div className="w-56 h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/20">
+                    <div className="flex justify-center mb-6 sm:mb-8">
+                      <div className="relative group max-w-full">
+                        <div className="w-40 h-40 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/20">
                           <img
                             src={homeFeaturedTrack.cover}
                             alt={homeFeaturedTrack.title}
@@ -509,13 +509,13 @@ export function HomePage() {
                         </div>
                         {/* Spinning vinyl effect */}
                         <motion.div
-                          className={`absolute -right-6 -bottom-6 w-24 h-24 bg-gray-900 rounded-full flex items-center justify-center shadow-xl ${
+                          className={`absolute -right-3 -bottom-3 h-16 w-16 sm:-right-6 sm:-bottom-6 sm:h-24 sm:w-24 bg-gray-900 rounded-full flex items-center justify-center shadow-xl ${
                             currentTrack?.id === homeFeaturedTrack.id && isPlaying ? 'animate-spin' : ''
                           }`}
                           style={{ animationDuration: '3s' }}
                         >
-                          <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
-                            <div className="w-3 h-3 bg-white rounded-full" />
+                          <div className="h-7 w-7 sm:h-10 sm:w-10 bg-gray-700 rounded-full flex items-center justify-center">
+                            <div className="h-2 w-2 sm:h-3 sm:w-3 bg-white rounded-full" />
                           </div>
                         </motion.div>
                       </div>
@@ -523,25 +523,27 @@ export function HomePage() {
                     
                     {/* Track Info - Centered below */}
                     <div className="text-center">
-                      <h3 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">
+                      <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-white mb-2 break-words">
                         {homeFeaturedTrack.title}
                       </h3>
-                      <p className="text-white/70 text-lg mb-1">{homeFeaturedTrack.artist}</p>
-                      <p className="text-white/50 text-sm mb-8">{homeFeaturedTrackMeta}</p>
+                      <p className="mx-auto max-w-[18rem] px-2 text-white/75 text-sm leading-snug sm:max-w-none sm:text-lg mb-1">
+                        {homeFeaturedTrack.artist}
+                      </p>
+                      <p className="text-white/55 text-sm mb-5 sm:mb-8">{homeFeaturedTrackMeta}</p>
                       
                       {/* Play Button */}
                       <button
                         onClick={() => playTrack(homeFeaturedTrack)}
-                        className="inline-flex items-center gap-3 bg-white hover:bg-faith-50 text-gold-600 px-10 py-4 rounded-full font-bold shadow-lg transition-all group text-lg"
+                        className="inline-flex w-full max-w-xs items-center justify-center gap-3 bg-white hover:bg-faith-50 text-gold-600 px-6 py-3 sm:w-auto sm:px-10 sm:py-4 rounded-full font-bold shadow-lg transition-all group text-base sm:text-lg"
                       >
                         {currentTrack?.id === homeFeaturedTrack.id && isPlaying ? (
                           <>
-                            <Pause className="w-6 h-6" />
+                            <Pause className="h-5 w-5 sm:h-6 sm:w-6" />
                             Pause
                           </>
                         ) : (
                           <>
-                            <Play className="w-6 h-6 ml-1" />
+                            <Play className="h-5 w-5 sm:h-6 sm:w-6 ml-1" />
                             Play Now
                           </>
                         )}
@@ -576,7 +578,7 @@ export function HomePage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex flex-col h-full"
+              className="flex flex-col h-full min-w-0"
             >
               <h3 className="font-display text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <Disc3 className="w-5 h-5 text-gold-400" />
@@ -595,13 +597,13 @@ export function HomePage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 }}
-                      className={`bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-xl p-4 lg:p-5 flex items-center gap-4 group cursor-pointer transition-all border flex-1 ${
+                      className={`bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 lg:p-5 flex items-center gap-3 sm:gap-4 group cursor-pointer transition-all border flex-1 min-w-0 ${
                         isThisPlaying ? 'border-gold-500 bg-white/10' : 'border-transparent hover:border-white/20'
                       }`}
                       onClick={() => playTrack(track)}
                     >
                       {/* Album Art */}
-                      <div className="relative w-16 h-16 lg:w-20 lg:h-20 rounded-xl overflow-hidden flex-shrink-0 shadow-lg">
+                      <div className="relative h-14 w-14 sm:h-16 sm:w-16 lg:h-20 lg:w-20 rounded-xl overflow-hidden flex-shrink-0 shadow-lg">
                         <img
                           src={track.cover}
                           alt={track.title}
@@ -611,23 +613,23 @@ export function HomePage() {
                           isThisPlaying ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
                         }`}>
                           {isThisPlaying ? (
-                            <Pause className="w-7 h-7 text-white" />
+                            <Pause className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
                           ) : (
-                            <Play className="w-7 h-7 text-white ml-0.5" />
+                            <Play className="h-6 w-6 sm:h-7 sm:w-7 text-white ml-0.5" />
                           )}
                         </div>
                       </div>
                       
                       {/* Track Info */}
                       <div className="flex-1 min-w-0">
-                        <h4 className={`font-semibold text-lg truncate ${isThisPlaying ? 'text-gold-400' : 'text-white'}`}>
+                        <h4 className={`font-semibold text-base sm:text-lg truncate ${isThisPlaying ? 'text-gold-400' : 'text-white'}`}>
                           {track.title}
                         </h4>
-                        <p className="text-faith-400 text-sm truncate">{getTrackSubtitle(track)}</p>
+                        <p className="text-faith-400 text-xs sm:text-sm truncate">{getTrackSubtitle(track)}</p>
                       </div>
                       
                       {/* Duration / Visualizer */}
-                      <div className="flex items-center gap-3">
+                      <div className="hidden sm:flex items-center gap-3 flex-shrink-0">
                         {isThisPlaying ? (
                           <div className="flex items-end gap-0.5 h-6">
                             {[...Array(5)].map((_, i) => (
