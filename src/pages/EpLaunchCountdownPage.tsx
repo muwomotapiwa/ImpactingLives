@@ -72,6 +72,10 @@ function getLaunchStatus(event: LaunchEvent, now: Date): LaunchStatus {
   return 'countdown';
 }
 
+function getLinkCloseAt(event: LaunchEvent) {
+  return new Date(event.revealAt.getTime() + 3 * 60 * 60 * 1000);
+}
+
 function getCountdownParts(target: Date, now: Date) {
   const totalSeconds = Math.max(0, Math.floor((target.getTime() - now.getTime()) / 1000));
   const days = Math.floor(totalSeconds / 86400);
@@ -111,8 +115,9 @@ export function EpLaunchCountdownPage() {
     () =>
       launchEvents.map((event) => {
         const status = getLaunchStatus(event, now);
+        const linkCloseAt = getLinkCloseAt(event);
         const linkIsLive =
-          now.getTime() >= event.revealAt.getTime() && now.getTime() < event.dayEnd.getTime();
+          now.getTime() >= event.revealAt.getTime() && now.getTime() < linkCloseAt.getTime();
 
         return {
           event,
@@ -125,7 +130,7 @@ export function EpLaunchCountdownPage() {
   );
 
   const activeLaunches = launchStates.filter((launch) => launch.status !== 'complete');
-  const displayedLaunches = activeLaunches.length > 0 ? activeLaunches : launchStates;
+  const displayedLaunches = launchStates;
   const liveLaunch = launchStates.find((launch) => launch.linkIsLive);
   const nextLaunch = activeLaunches[0] ?? launchStates[launchStates.length - 1];
 
@@ -159,7 +164,7 @@ export function EpLaunchCountdownPage() {
         Back Home
       </Link>
 
-      <main className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-4 pb-8 pt-20 sm:px-6 lg:h-screen lg:min-h-0 lg:px-8 lg:pb-4 lg:pt-5">
+      <main className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-4 pb-16 pt-20 sm:px-6 lg:h-screen lg:min-h-0 lg:px-8 lg:pb-10 lg:pt-5">
         <section className="grid gap-7 lg:min-h-0 lg:flex-1 lg:grid-cols-[1.03fr_0.97fr] lg:items-center lg:gap-8">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -242,18 +247,10 @@ export function EpLaunchCountdownPage() {
                   className="aspect-square w-full rounded-[1.25rem] object-cover"
                 />
               </div>
-              <div className="absolute -bottom-5 left-6 right-6 rounded-2xl border border-[#01ff01]/35 bg-[#198795]/90 px-5 py-4 shadow-xl shadow-[#4e2a1e]/35 backdrop-blur">
-                <div className="text-xs font-black uppercase tracking-[0.24em] text-[#f6c857]">
-                  Live link window
-                </div>
-                <div className="mt-1 text-sm font-bold text-white">
-                  Opens at 7:50PM ZIM on each launch day
-                </div>
-              </div>
             </motion.div>
         </section>
 
-        <section className="relative z-10 mt-8 lg:mt-2">
+        <section className="relative z-10 mt-5 lg:-mt-3 xl:-mt-4">
           <div className="grid gap-4 lg:grid-cols-3 lg:gap-4">
             {displayedLaunches.map(({ event, status, countdown, linkIsLive }, index) => (
               <motion.article
@@ -267,8 +264,9 @@ export function EpLaunchCountdownPage() {
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#01ff01] via-[#f6c857] to-[#198795]" />
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <div className="inline-flex rounded-full bg-[#4e2a1e]/65 px-3 py-1 text-xs font-black uppercase tracking-wider text-[#f6c857]">
-                      {event.dateLabel}
+                    <div className="inline-flex flex-wrap gap-1 rounded-full bg-[#4e2a1e]/65 px-3 py-1 text-xs font-black uppercase tracking-wider text-[#f6c857]">
+                      <span>{event.dateLabel}</span>
+                      {status === 'complete' && <span className="text-[#01ff01]">PastEvent!!</span>}
                     </div>
                     <h2 className="mt-4 font-display text-3xl font-black leading-tight text-white lg:mt-3 lg:text-2xl xl:text-3xl">
                       {event.title}
@@ -327,7 +325,7 @@ export function EpLaunchCountdownPage() {
                     </a>
                   ) : (
                     <div className="rounded-2xl border border-[#f6c857]/25 bg-[#4e2a1e]/35 px-4 py-3 text-center text-xs font-bold text-[#e1e2e0]/85">
-                      WhatsApp link appears 10 minutes before UK 7PM / ZIM 8PM.
+                      WhatsApp link appears 10 minutes before UK 7PM / ZIM 8PM and hides 3 hours later.
                     </div>
                   )}
                 </div>
@@ -336,6 +334,22 @@ export function EpLaunchCountdownPage() {
           </div>
         </section>
       </main>
+
+      <div className="fixed inset-x-0 bottom-0 z-20 overflow-hidden border-y border-[#f6c857]/30 bg-[#198795]/90 py-2 shadow-2xl shadow-[#4e2a1e]/35 backdrop-blur">
+        <motion.div
+          className="flex w-max items-center gap-8 whitespace-nowrap text-sm font-black uppercase tracking-[0.18em] text-[#e1e2e0]"
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
+        >
+          {[...Array(2)].map((_, index) => (
+            <span key={index} className="flex items-center gap-8">
+              <span className="text-[#f6c857]">Live Link Window</span>
+              <span>Opens at UK 6:50PM / ZIM 7:50PM on each launch day</span>
+              <span className="text-[#01ff01]">WhatsApp launch room unlocks 10 minutes before launch and hides 3 hours later</span>
+            </span>
+          ))}
+        </motion.div>
+      </div>
     </div>
   );
 }
