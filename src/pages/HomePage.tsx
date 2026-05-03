@@ -130,6 +130,8 @@ const epLaunchSchedule = [
   },
 ];
 
+const epLaunchCountdownUrl = 'https://rueimpactinglives.co.uk/#/ep-launch';
+
 export function HomePage() {
   const { currentTrack, isPlaying, playTrack } = useAudio();
   const epLaunchRef = useRef<HTMLElement>(null);
@@ -342,13 +344,17 @@ export function HomePage() {
                 className="relative mx-auto max-w-[560px] transform-gpu"
               >
                 <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-gold-500/35 via-cyan-400/20 to-faith-700/40 blur-xl" />
-                <div className="relative overflow-hidden rounded-[1.75rem] border border-white/20 bg-white/10 p-2 shadow-2xl shadow-gold-950/50 backdrop-blur">
+                <a
+                  href={epLaunchCountdownUrl}
+                  aria-label="Open the EP Launch 2026 countdown page"
+                  className="relative block overflow-hidden rounded-[1.75rem] border border-white/20 bg-white/10 p-2 shadow-2xl shadow-gold-950/50 backdrop-blur transition-transform hover:scale-[1.015] focus:outline-none focus:ring-4 focus:ring-gold-400/40"
+                >
                   <img
                     src={epLaunchImg}
                     alt="EP Launch 2026 announcement for Rumbi Kachembere Muganyura"
                     className="aspect-square w-full rounded-[1.25rem] object-cover"
                   />
-                </div>
+                </a>
                 <motion.div
                   aria-hidden="true"
                   className="absolute -right-5 top-10 hidden h-24 w-24 rounded-full border border-white/25 bg-faith-950/70 shadow-xl shadow-faith-950/40 md:flex items-center justify-center"
