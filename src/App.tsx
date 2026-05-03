@@ -6,6 +6,7 @@ import { MinistriesPage } from './pages/MinistriesPage';
 import { MinistryDetailPage } from './pages/MinistryDetailPage';
 import { ImpactPage } from './pages/ImpactPage';
 import { ContactPage } from './pages/ContactPage';
+import { EpLaunchCountdownPage } from './pages/EpLaunchCountdownPage';
 import { AudioProvider } from './context/AudioContext';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -34,6 +35,7 @@ export function App() {
             <Route path="/ministries/:ministryId" element={<MinistryDetailPage />} />
             <Route path="/impact" element={<ImpactPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/ep-launch" element={<EpLaunchCountdownPage />} />
           </Routes>
         </Layout>
       </Router>

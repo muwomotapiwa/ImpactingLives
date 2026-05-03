@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Heart, ChevronDown } from 'lucide-react';
+import { Menu, X, Heart, ChevronDown, Megaphone } from 'lucide-react';
 import rumbiLogo from '@/assets/RumbiLogo.jpeg';
 
 const navLinks = [
@@ -22,6 +22,27 @@ const navLinks = [
   { name: 'Contact', href: '/contact' },
 ];
 
+const launchReminderMessages = [
+  {
+    title: 'EP Launch 2026',
+    body: 'Gospel Time is here. Catch Hukuru Hwenyu, Zvoda Ishe Remix and Hondo Remix.',
+    meta: 'UK 7PM / ZIM 8PM',
+  },
+  {
+    title: 'WhatsApp Launch',
+    body: 'Join the EP launch moments and celebrate the new worship releases.',
+    meta: '8 May 2026',
+  },
+  {
+    title: 'New Music Reminder',
+    body: 'Hukuru Hwenyu is leading the EP launch. Tap for details soon.',
+    meta: 'EP Launch 2026',
+  },
+];
+
+const getRandomDelay = (minSeconds: number, maxSeconds: number) =>
+  Math.round((Math.random() * (maxSeconds - minSeconds) + minSeconds) * 1000);
+
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -29,12 +50,106 @@ interface LayoutProps {
 export function Layout({ children }: LayoutProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const [isLaunchReminderVisible, setIsLaunchReminderVisible] = useState(false);
+  const [launchReminderIndex, setLaunchReminderIndex] = useState(0);
+  const showReminderTimerRef = useRef<number | null>(null);
+  const hideReminderTimerRef = useRef<number | null>(null);
   const location = useLocation();
+  const isLaunchCountdownPage = location.pathname === '/ep-launch';
 
   const isActive = (href: string) => {
     if (href === '/') return location.pathname === '/';
     return location.pathname.startsWith(href);
   };
+
+  function showLaunchReminder() {
+    setLaunchReminderIndex(Math.floor(Math.random() * launchReminderMessages.length));
+    setIsLaunchReminderVisible(true);
+
+    if (hideReminderTimerRef.current) {
+      window.clearTimeout(hideReminderTimerRef.current);
+    }
+
+    hideReminderTimerRef.current = window.setTimeout(() => {
+      setIsLaunchReminderVisible(false);
+      scheduleLaunchReminder(18, 42);
+    }, 9000);
+  }
+
+  function scheduleLaunchReminder(minSeconds = 6, maxSeconds = 16) {
+    if (showReminderTimerRef.current) {
+      window.clearTimeout(showReminderTimerRef.current);
+    }
+
+    showReminderTimerRef.current = window.setTimeout(() => {
+      showLaunchReminder();
+    }, getRandomDelay(minSeconds, maxSeconds));
+  }
+
+  useEffect(() => {
+    const clearReminderTimers = () => {
+      if (showReminderTimerRef.current) {
+        window.clearTimeout(showReminderTimerRef.current);
+      }
+      if (hideReminderTimerRef.current) {
+        window.clearTimeout(hideReminderTimerRef.current);
+      }
+    };
+
+    if (isLaunchCountdownPage) {
+      setIsLaunchReminderVisible(false);
+      clearReminderTimers();
+      return clearReminderTimers;
+    }
+
+    scheduleLaunchReminder();
+
+    return clearReminderTimers;
+  }, [isLaunchCountdownPage]);
+
+  const dismissLaunchReminder = () => {
+    if (hideReminderTimerRef.current) {
+      window.clearTimeout(hideReminderTimerRef.current);
+    }
+    setIsLaunchReminderVisible(false);
+
+    if (showReminderTimerRef.current) {
+      window.clearTimeout(showReminderTimerRef.current);
+    }
+
+    scheduleLaunchReminder(24, 56);
+  };
+
+  const openLaunchReminderPage = () => {
+    if (hideReminderTimerRef.current) {
+      window.clearTimeout(hideReminderTimerRef.current);
+    }
+
+    setIsLaunchReminderVisible(false);
+    scheduleLaunchReminder(32, 72);
+  };
+
+  const launchReminder = launchReminderMessages[launchReminderIndex];
+
+  if (isLaunchCountdownPage) {
+    return (
+      <div className="min-h-screen bg-[#160d13]">
+        <main>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={location.pathname}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+            >
+              {children}
+            </motion.div>
+          </AnimatePresence>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -217,6 +332,67 @@ export function Layout({ children }: LayoutProps) {
         </AnimatePresence>
       </main>
 
+      <AnimatePresence>
+        {isLaunchReminderVisible && (
+          <motion.div
+            initial={{ opacity: 0, y: 28, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 22, scale: 0.96 }}
+            transition={{ duration: 0.35, ease: 'easeOut' }}
+            className="fixed bottom-4 left-3 right-3 z-[60] mx-auto max-w-md sm:bottom-5 sm:left-auto sm:right-5"
+          >
+            <Link
+              to="/ep-launch"
+              onClick={openLaunchReminderPage}
+              className="group flex items-center gap-3 rounded-2xl border px-3.5 py-3 pr-11 shadow-2xl backdrop-blur-xl transition-transform hover:-translate-y-0.5 sm:px-4"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(25,135,149,0.96), rgba(78,42,30,0.96))',
+                borderColor: 'rgba(246,200,87,0.62)',
+                boxShadow: '0 18px 42px rgba(78,42,30,0.28)',
+              }}
+              aria-label={`${launchReminder.title}: ${launchReminder.body}`}
+            >
+              <span
+                className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full"
+                style={{ backgroundColor: '#01ff01', color: '#4e2a1e' }}
+              >
+                <Megaphone className="h-5 w-5" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span
+                  className="block text-[11px] font-bold uppercase tracking-wider"
+                  style={{ color: '#f6c857' }}
+                >
+                  {launchReminder.meta}
+                </span>
+                <span className="block truncate text-sm font-bold text-white sm:text-[15px]">
+                  {launchReminder.title}
+                </span>
+                <span className="line-clamp-2 text-xs leading-snug sm:text-sm" style={{ color: '#e1e2e0' }}>
+                  {launchReminder.body}
+                </span>
+              </span>
+              <span
+                className="hidden text-xs font-bold transition-transform group-hover:translate-x-0.5 sm:block"
+                style={{ color: '#6edf58' }}
+              >
+                View
+              </span>
+            </Link>
+            <button
+              type="button"
+              onClick={dismissLaunchReminder}
+              className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full transition-colors"
+              style={{ backgroundColor: 'rgba(225,226,224,0.16)', color: '#e1e2e0' }}
+              aria-label="Close launch reminder"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Footer */}
       <footer className="bg-faith-950 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 pt-16 pb-8">
@@ -295,7 +471,7 @@ export function Layout({ children }: LayoutProps) {
           {/* Bottom Bar */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-faith-500 text-sm">
             <p>
-              © {new Date().getFullYear()} ImpactingLives. All rights reserved.
+              Â© {new Date().getFullYear()} ImpactingLives. All rights reserved.
             </p>
             <p className="flex items-center gap-1">
               Made with <Heart className="w-4 h-4 text-gold-500" /> for His glory
