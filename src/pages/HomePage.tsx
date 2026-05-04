@@ -18,7 +18,8 @@ import {
   Disc3,
   Headphones,
   Radio,
-  Send
+  Send,
+  ExternalLink
 } from 'lucide-react';
 import { useAudio, tracks } from '../context/AudioContext';
 import tenYearsOfMinistryImg from '@/assets/10yearsOfMinistry.jpeg';
@@ -131,6 +132,7 @@ const epLaunchSchedule = [
 ];
 
 const epLaunchCountdownUrl = 'https://rueimpactinglives.co.uk/#/ep-launch';
+const whatsAppLaunchLink = 'https://chat.whatsapp.com/EniYClMd4RN75YC5SQAqCS';
 
 export function HomePage() {
   const { currentTrack, isPlaying, playTrack } = useAudio();
@@ -438,10 +440,16 @@ export function HomePage() {
                   <Music className="h-5 w-5" />
                   Explore the Music
                 </Link>
-                <div className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-7 py-3 font-semibold text-faith-100">
+                <a
+                  href={whatsAppLaunchLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-7 py-3 font-semibold text-faith-100 transition-colors hover:border-gold-300/50 hover:bg-white/[0.1]"
+                >
                   <Send className="h-5 w-5 text-gold-300" />
-                  WhatsApp Launch 8 May
-                </div>
+                  Join WhatsApp Group
+                  <ExternalLink className="h-4 w-4 text-gold-300" />
+                </a>
               </div>
             </motion.div>
           </div>

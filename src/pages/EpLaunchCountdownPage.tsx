@@ -10,7 +10,6 @@ import {
   Radio,
   Send,
   Sparkles,
-  Zap,
 } from 'lucide-react';
 import epLaunchImg from '@/assets/EP_Launch_2026.jpeg';
 
@@ -21,8 +20,6 @@ type LaunchEvent = {
   feature: string;
   dateLabel: string;
   dayStart: Date;
-  revealAt: Date;
-  launchAt: Date;
   dayEnd: Date;
 };
 
@@ -34,8 +31,6 @@ const launchEvents: LaunchEvent[] = [
     feature: 'ft PMP Choir',
     dateLabel: '8 May 2026',
     dayStart: new Date('2026-05-08T00:00:00+02:00'),
-    revealAt: new Date('2026-05-08T19:50:00+02:00'),
-    launchAt: new Date('2026-05-08T20:00:00+02:00'),
     dayEnd: new Date('2026-05-09T00:00:00+02:00'),
   },
   {
@@ -43,8 +38,6 @@ const launchEvents: LaunchEvent[] = [
     feature: 'ft Bethen Pasinawako Ngolomi',
     dateLabel: '15 May 2026',
     dayStart: new Date('2026-05-15T00:00:00+02:00'),
-    revealAt: new Date('2026-05-15T19:50:00+02:00'),
-    launchAt: new Date('2026-05-15T20:00:00+02:00'),
     dayEnd: new Date('2026-05-16T00:00:00+02:00'),
   },
   {
@@ -52,8 +45,6 @@ const launchEvents: LaunchEvent[] = [
     feature: 'ft Caroline Muzambi',
     dateLabel: '22 May 2026',
     dayStart: new Date('2026-05-22T00:00:00+02:00'),
-    revealAt: new Date('2026-05-22T19:50:00+02:00'),
-    launchAt: new Date('2026-05-22T20:00:00+02:00'),
     dayEnd: new Date('2026-05-23T00:00:00+02:00'),
   },
 ];
@@ -70,10 +61,6 @@ function getLaunchStatus(event: LaunchEvent, now: Date): LaunchStatus {
   }
 
   return 'countdown';
-}
-
-function getLinkCloseAt(event: LaunchEvent) {
-  return new Date(event.revealAt.getTime() + 3 * 60 * 60 * 1000);
 }
 
 function getCountdownParts(target: Date, now: Date) {
@@ -115,14 +102,10 @@ export function EpLaunchCountdownPage() {
     () =>
       launchEvents.map((event) => {
         const status = getLaunchStatus(event, now);
-        const linkCloseAt = getLinkCloseAt(event);
-        const linkIsLive =
-          now.getTime() >= event.revealAt.getTime() && now.getTime() < linkCloseAt.getTime();
 
         return {
           event,
           status,
-          linkIsLive,
           countdown: getCountdownParts(event.dayStart, now),
         };
       }),
@@ -131,7 +114,6 @@ export function EpLaunchCountdownPage() {
 
   const activeLaunches = launchStates.filter((launch) => launch.status !== 'complete');
   const displayedLaunches = launchStates;
-  const liveLaunch = launchStates.find((launch) => launch.linkIsLive);
   const nextLaunch = activeLaunches[0] ?? launchStates[launchStates.length - 1];
 
   return (
@@ -180,15 +162,15 @@ export function EpLaunchCountdownPage() {
                 <span className="block text-[#f6c857]">Countdown</span>
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#e1e2e0] lg:mt-3 lg:text-base">
-                Three launch moments. One EP journey. Watch the countdowns shift into launch-day
-                mode, then return ten minutes before UK 7PM / ZIM 8PM for the live WhatsApp room.
+                Three launch moments. One EP journey. Join the WhatsApp group now for
+                announcements, reminders, and every launch moment at UK 7PM / ZIM 8PM.
               </p>
 
               <div className="mt-7 grid gap-3 sm:grid-cols-3 lg:mt-4">
                 {[
                   { icon: CalendarDays, label: 'Next signal', value: nextLaunch.event.dateLabel },
                   { icon: Clock, label: 'Launch time', value: 'UK 7PM / ZIM 8PM' },
-                  { icon: Radio, label: 'WhatsApp opens', value: '10 min before' },
+                  { icon: Radio, label: 'WhatsApp group', value: 'Open now' },
                 ].map((item) => (
                   <div
                     key={item.label}
@@ -204,23 +186,16 @@ export function EpLaunchCountdownPage() {
               </div>
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row lg:mt-4">
-                {liveLaunch ? (
-                  <a
-                    href={whatsAppLaunchLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#01ff01] px-7 py-3 font-black text-[#4e2a1e] shadow-xl shadow-[#01ff01]/20 transition-transform hover:-translate-y-0.5"
-                  >
-                    <Send className="h-5 w-5" />
-                    Join {liveLaunch.event.title}
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
-                ) : (
-                  <div className="inline-flex items-center justify-center gap-2 rounded-full border border-[#f6c857]/35 bg-[#e1e2e0]/10 px-7 py-3 font-bold text-[#f6c857]">
-                    <Zap className="h-5 w-5" />
-                    WhatsApp link unlocks before launch
-                  </div>
-                )}
+                <a
+                  href={whatsAppLaunchLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#01ff01] px-7 py-3 font-black text-[#4e2a1e] shadow-xl shadow-[#01ff01]/20 transition-transform hover:-translate-y-0.5"
+                >
+                  <Send className="h-5 w-5" />
+                  Join WhatsApp Group
+                  <ExternalLink className="h-4 w-4" />
+                </a>
                 <Link
                   to="/ministries/music"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-[#6edf58]/45 bg-[#198795]/35 px-7 py-3 font-bold text-[#e1e2e0] transition-colors hover:bg-[#198795]/55"
@@ -252,7 +227,7 @@ export function EpLaunchCountdownPage() {
 
         <section className="relative z-10 mt-5 lg:-mt-3 xl:-mt-4">
           <div className="grid gap-4 lg:grid-cols-3 lg:gap-4">
-            {displayedLaunches.map(({ event, status, countdown, linkIsLive }, index) => (
+            {displayedLaunches.map(({ event, status, countdown }, index) => (
               <motion.article
                 key={event.title}
                 initial={{ opacity: 0, y: 28 }}
@@ -312,22 +287,16 @@ export function EpLaunchCountdownPage() {
                 </div>
 
                 <div className="mt-5 lg:mt-4">
-                  {linkIsLive ? (
-                    <a
-                      href={whatsAppLaunchLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center justify-center gap-2 rounded-full bg-[#01ff01] px-5 py-3 text-sm font-black text-[#4e2a1e] transition-transform hover:-translate-y-0.5"
-                    >
-                      <Send className="h-4 w-4" />
-                      WhatsApp launch link is live
-                      <ExternalLink className="h-4 w-4" />
-                    </a>
-                  ) : (
-                    <div className="rounded-2xl border border-[#f6c857]/25 bg-[#4e2a1e]/35 px-4 py-3 text-center text-xs font-bold text-[#e1e2e0]/85">
-                      WhatsApp link appears 10 minutes before UK 7PM / ZIM 8PM and hides 3 hours later.
-                    </div>
-                  )}
+                  <a
+                    href={whatsAppLaunchLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-center gap-2 rounded-full bg-[#01ff01] px-5 py-3 text-sm font-black text-[#4e2a1e] transition-transform hover:-translate-y-0.5"
+                  >
+                    <Send className="h-4 w-4" />
+                    Join the WhatsApp group
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
                 </div>
               </motion.article>
             ))}
@@ -343,9 +312,9 @@ export function EpLaunchCountdownPage() {
         >
           {[...Array(2)].map((_, index) => (
             <span key={index} className="flex items-center gap-8">
-              <span className="text-[#f6c857]">Live Link Window</span>
-              <span>Opens at UK 6:50PM / ZIM 7:50PM on each launch day</span>
-              <span className="text-[#01ff01]">WhatsApp launch room unlocks 10 minutes before launch and hides 3 hours later</span>
+              <span className="text-[#f6c857]">Join The WhatsApp Group</span>
+              <span>Tap the WhatsApp button to join the EP Launch 2026 group</span>
+              <span className="text-[#01ff01]">Get reminders, updates, and launch moments with the Impacting Lives family</span>
             </span>
           ))}
         </motion.div>
