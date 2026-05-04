@@ -117,7 +117,7 @@ export function EpLaunchCountdownPage() {
   const nextLaunch = activeLaunches[0] ?? launchStates[launchStates.length - 1];
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#160d13] text-white lg:h-screen lg:overflow-hidden">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#160d13] text-white">
       <div
         aria-hidden="true"
         className="absolute inset-0"
@@ -146,8 +146,8 @@ export function EpLaunchCountdownPage() {
         Back Home
       </Link>
 
-      <main className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-4 pb-16 pt-20 sm:px-6 lg:h-screen lg:min-h-0 lg:px-8 lg:pb-10 lg:pt-5">
-        <section className="grid gap-7 lg:min-h-0 lg:flex-1 lg:grid-cols-[1.03fr_0.97fr] lg:items-center lg:gap-8">
+      <main className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-4 pb-28 pt-24 sm:px-6 lg:px-8 lg:pt-24">
+        <section className="grid gap-7 lg:grid-cols-[1.03fr_0.97fr] lg:items-center lg:gap-8">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -225,7 +225,7 @@ export function EpLaunchCountdownPage() {
             </motion.div>
         </section>
 
-        <section className="relative z-10 mt-5 lg:-mt-3 xl:-mt-4">
+        <section className="relative z-10 mt-8 lg:mt-7 xl:mt-8">
           <div className="grid gap-4 lg:grid-cols-3 lg:gap-4">
             {displayedLaunches.map(({ event, status, countdown }, index) => (
               <motion.article
